@@ -1,0 +1,4 @@
+# Ignorar todo dentro de la carpeta Code_Porting
+/IDNG-64-v5-Application/MDK-ARM/Code_Porting/*
+
+/IDNG-64-v5-Application/MDK-ARM/Code_Porting
