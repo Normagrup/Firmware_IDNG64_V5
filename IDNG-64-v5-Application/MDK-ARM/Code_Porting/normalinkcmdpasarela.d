@@ -1,0 +1,15 @@
+code_porting\normalinkcmdpasarela.o: ..\app\normaLinkCmdPasarela.c
+code_porting\normalinkcmdpasarela.o: ..\app\config.h
+code_porting\normalinkcmdpasarela.o: C:\Keil_v5\ARM\5.06\Bin\..\include\string.h
+code_porting\normalinkcmdpasarela.o: ..\app\m25p.h
+code_porting\normalinkcmdpasarela.o: ..\app\dataTypes.h
+code_porting\normalinkcmdpasarela.o: ..\app\rtcc.h
+code_porting\normalinkcmdpasarela.o: ..\app\daliLoop.h
+code_porting\normalinkcmdpasarela.o: ..\app\polling.h
+code_porting\normalinkcmdpasarela.o: ..\app\historico.h
+code_porting\normalinkcmdpasarela.o: ..\app\ethTransceiver.h
+code_porting\normalinkcmdpasarela.o: ..\app\ethFramming.h
+code_porting\normalinkcmdpasarela.o: ..\app\normalink.h
+code_porting\normalinkcmdpasarela.o: ..\app\wdt.h
+code_porting\normalinkcmdpasarela.o: ..\app\utils.h
+code_porting\normalinkcmdpasarela.o: ..\app\mainCfg.h

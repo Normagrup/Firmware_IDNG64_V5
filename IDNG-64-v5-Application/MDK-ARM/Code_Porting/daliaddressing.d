@@ -1,0 +1,9 @@
+code_porting\daliaddressing.o: ..\app\daliAddressing.c
+code_porting\daliaddressing.o: ..\app\daliCommands.h
+code_porting\daliaddressing.o: ..\app\dali.h
+code_porting\daliaddressing.o: ..\app\daliLoop.h
+code_porting\daliaddressing.o: ..\app\config.h
+code_porting\daliaddressing.o: C:\Keil_v5\ARM\5.06\Bin\..\include\string.h
+code_porting\daliaddressing.o: ..\app\m25p.h
+code_porting\daliaddressing.o: ..\app\dataTypes.h
+code_porting\daliaddressing.o: ..\app\qSN.h

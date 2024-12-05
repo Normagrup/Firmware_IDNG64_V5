@@ -1,0 +1,67 @@
+    // [AccionFijaAccionSolicitar].
+
+    /*
+        En un principio meto estos valores fijados siempre a DEFAULT. Luego podrían ser individuales o por grupo.
+
+        conflictoModoComportamientoDetectoresPresencia
+        conflictoModoComportamientoReguladoresLuz
+        conflictoModoComportamientoPulsadoresAccionTemporizada
+    */
+
+    // INTERRUPTOR GENERAL.
+        //  Si hay algún interruptorGeneral activado no se ejecuta nada.
+    // DETECTOR PRESENCIA.
+        //  Caso general:
+        //      PRESENCY: [Informa de la orden que va a transmitir y ejecuta la orden].
+        //      VACANCY:  [No hace nada].
+        //  Caso con prevalencia OBEDECEN AUNQUE ESTÉN EN VACANCY.
+        //      PRESENCY: [Informa de la orden que va a transmitir y ejecuta la orden].
+        //      VACANCY:  [Inhibe VACANCY] [Informa de la orden que va a transmitir y ejecuta la orden].
+        //  Caso con prevalencia EN VACANCY PONGO UN NIVEL Y NO SE EJECUTA EL PRESENCY.
+        //      PRESENCY: [Informa de la orden que va a transmitir y ejecuta la orden].
+        //      VACANCY:  [Inhibe PRESENCY] [Informa de la orden que va a transmitir y ejecuta la orden].
+        //  Caso con prevalencia EN PRESENCY DESPUÉS NO SE EJECUTA EL VACANCY.
+        //      PRESENCY: [Inhibe VACANCY] [Informa de la orden que va a transmitir y ejecuta la orden].
+        //      VACANCY:  [No hace nada].
+        //  Combinaciones de los anteriores...
+        //  Todo:
+        //      PRESENCY: [Inhibe VACANCY] [Informa de la orden que va a transmitir y ejecuta la orden].
+        //      VACANCY:  [Inhibe PRESENCY] [Inhibe VACANCY] [Informa de la orden que va a transmitir y ejecuta la orden].
+    // ACCION BASCULANTE.
+        // No hay problemas.
+    // ACCION FIJA.
+        // No hay problemas.
+    // ACCION REGULACION.
+        // Si hay regulación en curso no hace nada.
+    // ACCION TEMPORIZADA.
+        // Caso general:
+            // CORRIENDO:       [Ejecuta la orden].
+            // DETENIDO:        [No hace nada].
+        // El timer se inhibe, por lo que al expirar no pasa nada.
+            // CORRIENDO:       [Inhibe el temporizador] [Informa de la orden que va a transmitir y ejecuta la orden].
+            // DETENIDO:        [No hace nada].
+        // Se ejecuta aunque esté detenido.
+            // CORRIENDO:       [No hace nada].
+            // DETENIDO:        [Inhibe el temporizador] [Informa de la orden que va a transmitir y ejecuta la orden].
+        // Ambas opciones.
+            // CORRIENDO:       [Inhibe el temporizador] [Informa de la orden que va a transmitir y ejecuta la orden].
+            // DETENIDO:        [Inhibe el temporizador] [Informa de la orden que va a transmitir y ejecuta la orden].
+    // REGULADORES DE LUZ.
+        // Caso general:
+            // Análisis para RECALL MAX LEVEL:
+            // Análisis para RECALL MIN LEVEL:
+            // Análisis para DAPC:
+            // FUNCIONANDO:     [No hace nada].
+            // DETENIDO:        [¿Modifica el arco por el del regulador?] [Informa de la orden que va a transmitir y ejecuta la orden].
+            // Análisis para OFF:
+            // FUNCIONANDO:     [Informa de la orden que va a transmitir y ejecuta la orden].
+            // DETENIDO:        [No hace nada].
+        //  Casos con prevalencia:
+            // Análisis para RECALL MAX LEVEL prevaleciendo sobre el regulador de luz.
+            // Análisis para RECALL MIN LEVEL prevaleciendo sobre el regulador de luz.
+            // Análisis para DAPC prevaleciendo sobre el regulador de luz.
+            // Análisis para GOTO SCENE prevaleciendo sobre el regulador de luz.
+            // FUNCIONANDO:     [Inhibe el regulador] [Informa de la orden que va a transmitir y ejecuta la orden].
+            // DETENIDO:        [Inhibe el regulador] [Informa de la orden que va a transmitir y ejecuta la orden].
+    // ACCION COORDINADA GRUPO CON DETECTOR DE PRESENCIA Y PULSADOR DE ACCION TEMPORIZADA.
+            //  Pendiente...

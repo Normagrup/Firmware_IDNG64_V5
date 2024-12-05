@@ -1,0 +1,28 @@
+    //      INTERRUPTORES GENERALES.
+    //          Si hay algún interruptorGeneral activado no se ejecuta nada.
+    //      DETECTOR DE PRESENCIA.
+    //          ---.
+    //      PULSADORES ACCION BASCULANTE.
+    //          ---.
+    //      PULSADORES ACCION FIJA.
+    //          ---.
+    //      PULSADORES ACCION REGULACION.
+    //        Si hay algún pulsador regulacion en el grupo corriendo no se ejecuta nada hasta que no se detenga.
+    //      PULSADORES DE ACCION TEMPORIZADA.
+    //          Presency:
+    //              Si en el mismo grupo hay instalados pulsadores de acción temporizada, con que alguno de los dos esté encendido
+    //              la orden se transmite. Por lo que en este caso lo adecuado es que se transmita.
+    //          Vacancy:
+    //              Si en el mismo grupo también hay instalados pulsadores de acción temporizada, para transmitir la orden de apagado
+    //              deben estar también los detectores de presencia en vacancy.
+    //      REGULADORES DE LUZ.
+    //          Funcionando:
+    //              Presency==TRUE:
+    //                  [Transmite el nivel del regulador de luz]
+    //              Vacancy==FALSE:
+    //                  [Transmite la orden]
+    //          Detenido:
+    //              Presency==TRUE:
+    //                  [Transmite el nivel del regulador de luz]
+    //              Vacancy==FALSE:
+    //                  [Transmite la orden]

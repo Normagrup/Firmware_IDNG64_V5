@@ -1,0 +1,3 @@
+#ifndef SENSORES_PROPIOS_H_
+#define SENSORES_PROPIOS_H_
+#endif

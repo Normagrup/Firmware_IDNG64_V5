@@ -1,0 +1,1105 @@
+#include "stm32f0xx.h"
+#include "w5100/socket.h"
+#include "w5100/w5100.h"
+#include <string.h>
+#include <ctype.h>
+#include <config.h>
+
+
+extern volatile unsigned char ipAdrress[4];
+extern volatile unsigned char subMask[4];
+extern volatile unsigned char gtwAddress[4];
+
+unsigned char ip[4]={192,168,1,255};
+
+unsigned char webServerEstado=0x01;
+	unsigned char _buffer[512];
+unsigned char _bufferRx[1024];
+
+unsigned char _hea[256];
+
+
+unsigned char _n;
+
+unsigned char _startSearchPtr;
+unsigned char _pos;
+
+
+
+unsigned int webserverConEstablishedDelay;
+
+
+unsigned char _pointPos[3];
+
+
+unsigned char nombreEdificio[17];
+unsigned char nombreLinea[17];
+unsigned char passAdmin[17];
+	
+unsigned char _ok[15]={'H','T','T','P','/','1','.','1',' ','2','0','0',' ','O','K'};
+
+// "192.168.001.001"	15
+// "1.1.1.1"	7
+
+
+unsigned char _ipString[64];
+unsigned char _submaskString[64];
+unsigned char _gtwString[64];
+
+unsigned char _edificioString[64];
+unsigned char _lineaString[64];
+unsigned char _adminPassString[64];
+
+
+
+
+
+
+
+
+
+
+
+
+//unsigned char _searchStringIpAddress[]={'i','p','V','a','l','u','e','='};														// 8 
+//unsigned char _searchStringGtw[]={'g','t','w','V','a','l','u','e','='};															// 9
+//unsigned char _searchStringSubmask[]={'s','u','b','m','a','s','k','V','a','l','u','e','='};							// 13
+
+
+
+
+
+
+
+void stringToHeaderCopy (char string[])
+{
+		strcpy(_hea,string);	
+	
+	
+}
+
+void stringToHeaderCat (char string[])
+{
+		strcat(_hea,string);		
+	
+}
+
+
+
+
+
+void stringToBufferCopy (char string[])
+{
+		strcpy(_buffer,string);	
+	
+	
+}
+
+void stringToBufferCat (char string[])
+{
+		strcat(_buffer,string);	
+	
+	
+}
+
+void webserverInit (void)
+{
+	confObtener(FLASH_NOMBRE_EDIFICIO_DIRECCION_L,&nombreEdificio[0],FLASH_NOMBRE_EDIFICIO_SIZE);
+	confObtener(FLASH_NOMBRE_LINEA_DIRECCION_L,&nombreLinea[0],FLASH_NOMBRE_LINEA_SIZE);
+	confObtener(FLASH_PASSWORD_ADMIN_DIRECCION_L,&passAdmin[0],FLASH_PASSWORD_ADMIN_SIZE);
+	nombreEdificio[16]=0;
+	nombreLinea[16]=0;
+	passAdmin[16]=0;
+	
+	stringToHeaderCopy("HTTP/1.0 200 OK\r\nContent-Type: text/html\r\n\r\n");
+	stringToHeaderCat("<link rel=\"shortcut icon\" href=\"data:image/x-icon;,\" type=\"image/x-icon\">");
+	stringToHeaderCat("<html><body>\r\n");
+	stringToHeaderCat("<p><form method=\"POST\">\r\n");
+}
+
+
+
+int strindex(char *s,char *t)
+{
+	uint16_t i,n;
+	n=strlen(t);
+	for(i=0;*(s+i); i++) {
+		if (strncmp(s+i,t,n) == 0)
+		return i;
+	}
+	return -1;
+}
+
+
+unsigned char _webserverUtilsStringToValue (char *string, unsigned char count, unsigned char *value)
+{
+	unsigned char _c=0;
+	unsigned char _d=0;
+	unsigned char _u=0;
+	unsigned char _n;
+		
+	for (_n=0;_n<3;_n++)
+	{
+		if (((string[_n]<0x30) || (string[_n]>0x39)) && (string[_n]!=0))
+		{
+			return 0x00;
+		}
+	}
+		
+	if ((string[2]==0) && (string[1]==0))
+	{
+		_u=string[0]-0x30;
+	}
+	else
+	{
+		if (string[2]==0) 
+		{
+			_u=string[1]-0x30;
+			_d=string[0]-0x30;
+		}
+		else
+		{
+			_u=string[2]-0x30;
+			_d=string[1]-0x30;
+			_c=string[0]-0x30;
+		}										
+	}									
+	*value=_c*100+_d*10+_u;	
+	return 0x01;
+}
+
+
+
+void _webserverPrintIp(unsigned char *ip)
+{
+	unsigned char _centenas[4];
+	unsigned char _decenas[4];
+	unsigned char _unidades[4];
+	unsigned char _ascii[3];	
+	_centenas[0]=ip[0]/100;
+	_centenas[1]=ip[1]/100;
+	_centenas[2]=ip[2]/100;
+	_centenas[3]=ip[3]/100;
+	_decenas[0]=(ip[0]/10)-(10*_centenas[0]);
+	_decenas[1]=(ip[1]/10)-(10*_centenas[1]);
+	_decenas[2]=(ip[2]/10)-(10*_centenas[2]);
+	_decenas[3]=(ip[3]/10)-(10*_centenas[3]);
+	_unidades[0]=ip[0]-(100*_centenas[0])-(10*_decenas[0]);
+	_unidades[1]=ip[1]-(100*_centenas[1])-(10*_decenas[1]);
+	_unidades[2]=ip[2]-(100*_centenas[2])-(10*_decenas[2]);						
+	_unidades[3]=ip[3]-(100*_centenas[3])-(10*_decenas[3]);				
+	if (_centenas[0]==0)
+	{
+		if (_decenas[0]==0)
+		{
+			_ascii[0]=48+_unidades[0];
+			_ascii[1]=0;
+			_ascii[2]=0;
+		}
+		else
+		{
+			_ascii[0]=48+_decenas[0];
+			_ascii[1]=48+_unidades[0];
+			_ascii[2]=0;
+		}								
+	}
+	else
+	{
+		_ascii[0]=48+_centenas[0];	
+		_ascii[1]=48+_decenas[0];
+		_ascii[2]=48+_unidades[0];							
+	}
+	stringToBufferCat(_ascii);						
+	stringToBufferCat(".");							
+	if (_centenas[1]==0)
+	{
+		if (_decenas[1]==0)
+		{
+			_ascii[0]=48+_unidades[1];
+			_ascii[1]=0;
+			_ascii[2]=0;
+		}
+		else
+		{
+			_ascii[0]=48+_decenas[1];
+			_ascii[1]=48+_unidades[1];
+			_ascii[2]=0;
+		}								
+	}
+	else
+	{
+		_ascii[0]=48+_centenas[1];	
+		_ascii[1]=48+_decenas[1];
+		_ascii[2]=48+_unidades[1];							
+	}
+	stringToBufferCat(_ascii);						
+	stringToBufferCat(".");							
+	if (_centenas[2]==0)
+	{
+		if (_decenas[2]==0)
+		{
+			_ascii[0]=48+_unidades[2];
+			_ascii[1]=0;
+			_ascii[2]=0;
+		}
+		else
+		{
+			_ascii[0]=48+_decenas[2];
+			_ascii[1]=48+_unidades[2];
+			_ascii[2]=0;
+		}								
+	}
+	else
+	{
+		_ascii[0]=48+_centenas[2];	
+		_ascii[1]=48+_decenas[2];
+		_ascii[2]=48+_unidades[2];							
+	}
+	stringToBufferCat(_ascii);						
+	stringToBufferCat(".");							
+	if (_centenas[3]==0)
+	{
+		if (_decenas[3]==0)
+		{
+			_ascii[0]=48+_unidades[3];
+			_ascii[1]=0;
+			_ascii[2]=0;
+		}
+		else
+		{
+			_ascii[0]=48+_decenas[3];
+			_ascii[1]=48+_unidades[3];
+			_ascii[2]=0;
+		}								
+	}
+	else
+	{
+		_ascii[0]=48+_centenas[3];	
+		_ascii[1]=48+_decenas[3];
+		_ascii[2]=48+_unidades[3];							
+	}							
+	stringToBufferCat(_ascii);		
+}
+
+
+
+
+
+
+
+
+
+
+
+unsigned char _webserverUtilsStringFromBufferGet (unsigned char *buffr, unsigned char search, unsigned char *ipString)
+{
+	unsigned int _ipIndex=0;
+	unsigned char _n;
+	unsigned char _end=0x00;
+	unsigned char _lenght;
+	unsigned char _ip=0x00;
+	
+	for (_n=0;_n<64;_n++)
+	{
+			ipString[_n]=0;		
+	}	
+	
+	if (search==0x01)
+	{
+		_lenght=8;
+		_ip=0x01;
+		_ipIndex=strindex((char *)buffr,"ipValue=")+_lenght;			
+	}
+	
+	if (search==0x02)
+	{
+		_lenght=13;
+		_ip=0x01;
+		_ipIndex=strindex((char *)buffr,"submaskValue=")+_lenght;			
+	}
+	
+	if (search==0x03)
+	{
+		_lenght=9;
+		_ip=0x01;
+		_ipIndex=strindex((char *)buffr,"gtwValue=")+_lenght;			
+	}
+	
+	if (search==0x04)
+	{
+		_lenght=15;
+		_ipIndex=strindex((char *)buffr,"edificioNombre=")+_lenght;			
+	}
+	
+	if (search==0x05)
+	{
+		_lenght=12;
+		_ipIndex=strindex((char *)buffr,"lineaNombre=")+_lenght;			
+	}
+	
+	if (search==0x06)
+	{
+		_lenght=10;
+		_ipIndex=strindex((char *)buffr,"adminPass=")+_lenght;			
+	}
+	
+	if ((_ipIndex>0) && ((_ipIndex+_lenght+64)<1024))
+	{
+		_n=0;
+		while ((_n<64) && (_end==0x00))
+		{
+			
+			if (_ip==0x01)
+			{
+				if (((buffr[_ipIndex+_n]>=48) && (buffr[_ipIndex+_n]<=57)) || (buffr[_ipIndex+_n]=='.')) 
+				{		
+					ipString[_n]=buffr[_ipIndex+_n];
+				}
+				else
+				{
+					if (buffr[_ipIndex+_n]=='&')
+					{
+						_end=0x01;
+					}			
+				}		
+			}
+			else
+			{
+				if (buffr[_ipIndex+_n]!='&')
+				{		
+					ipString[_n]=buffr[_ipIndex+_n];
+				}
+				else
+				{
+					_end=0x01;						
+				}				
+			}		
+			
+			
+			
+
+			_n++;
+		}
+		if (_end==0x01)
+		{		
+			return 0x01;
+		}
+		else
+		{
+			return 0x00;
+		}
+	}
+	else
+	{
+		return 0x00;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+unsigned char _webserverUtilsIpValueFromBufferGet(unsigned char *buffer, unsigned char *ipValue)
+{
+	unsigned int _ipAddressIndex;
+	volatile unsigned int _start;
+	unsigned int _punto[3];
+	unsigned char _n;
+	unsigned char _ip0String[3]={0,0,0};
+	unsigned char _ip1String[3]={0,0,0};
+	unsigned char _ip2String[3]={0,0,0};
+	unsigned char _ip3String[3]={0,0,0};
+	unsigned char _ipValue0;
+	unsigned char _ipValue1;
+	unsigned char _ipValue2;
+	unsigned char _ipValue3;
+	
+	
+	_ipAddressIndex=strindex((char *)_buffer,"ipValue=")+8;	
+	_start=0;
+	for (_n=0;_n<4;_n++)
+	{
+		if (_buffer[_ipAddressIndex+_start+_n]=='.')
+		{
+			_punto[0]=_n+_start;
+			_n=3;										
+		}	
+		else
+		{
+			_ip0String[_n]=_buffer[_ipAddressIndex+_start+_n];
+		}
+	}
+	_start=_punto[0]+1;									
+	for (_n=0;_n<4;_n++)
+	{
+		if (_buffer[_ipAddressIndex+_start+_n]=='.')
+		{
+			_punto[1]=_n+_start;
+			_n=3;										
+		}					
+		else
+		{
+			_ip1String[_n]=_buffer[_ipAddressIndex+_start+_n];
+		}
+	}									
+	_start=_punto[1]+1;			
+	for (_n=0;_n<4;_n++)
+	{
+		if (_buffer[_ipAddressIndex+_start+_n]=='.')
+		{
+			_punto[2]=_n+_start;
+			_n=3;										
+		}	
+		else
+		{
+			_ip2String[_n]=_buffer[_ipAddressIndex+_start+_n];
+		}
+	}									
+	_start=_punto[2]+1;												
+	for (_n=0;_n<4;_n++)
+	{
+		if ((_buffer[_ipAddressIndex+_start+_n]>=48) && (_buffer[_ipAddressIndex+_start+_n]<=57))
+		{
+			_ip3String[_n]=_buffer[_ipAddressIndex+_start+_n];		
+		}	
+		else
+		{
+			_n=3;													
+		}
+	}										
+	_webserverUtilsStringToValue (&_ip0String[0],3, &_ipValue0);
+	_webserverUtilsStringToValue (&_ip1String[0],3, &_ipValue1);
+	_webserverUtilsStringToValue (&_ip2String[0],3,	&_ipValue2);
+	_webserverUtilsStringToValue (&_ip3String[0],3,	&_ipValue3);		
+	ipValue[0]=_ipValue0;
+	ipValue[1]=_ipValue1;
+	ipValue[2]=_ipValue2;
+	ipValue[3]=_ipValue3;	
+}
+
+
+
+
+unsigned char _webserverUtilsSubmaskValueFromBufferGet(unsigned char *buffer, unsigned char *ipValue)
+{
+	unsigned int _ipAddressIndex;
+	volatile unsigned int _start;
+	unsigned int _punto[3];
+	unsigned char _n;
+	unsigned char _ip0String[3]={0,0,0};
+	unsigned char _ip1String[3]={0,0,0};
+	unsigned char _ip2String[3]={0,0,0};
+	unsigned char _ip3String[3]={0,0,0};
+	unsigned char _ipValue0;
+	unsigned char _ipValue1;
+	unsigned char _ipValue2;
+	unsigned char _ipValue3;
+	
+	
+	_ipAddressIndex=strindex((char *)_buffer,"submaskValue=")+13;	
+	_start=0;
+	for (_n=0;_n<4;_n++)
+	{
+		if (_buffer[_ipAddressIndex+_start+_n]=='.')
+		{
+			_punto[0]=_n+_start;
+			_n=3;										
+		}	
+		else
+		{
+			_ip0String[_n]=_buffer[_ipAddressIndex+_start+_n];
+		}
+	}
+	_start=_punto[0]+1;									
+	for (_n=0;_n<4;_n++)
+	{
+		if (_buffer[_ipAddressIndex+_start+_n]=='.')
+		{
+			_punto[1]=_n+_start;
+			_n=3;										
+		}					
+		else
+		{
+			_ip1String[_n]=_buffer[_ipAddressIndex+_start+_n];
+		}
+	}									
+	_start=_punto[1]+1;			
+	for (_n=0;_n<4;_n++)
+	{
+		if (_buffer[_ipAddressIndex+_start+_n]=='.')
+		{
+			_punto[2]=_n+_start;
+			_n=3;										
+		}	
+		else
+		{
+			_ip2String[_n]=_buffer[_ipAddressIndex+_start+_n];
+		}
+	}									
+	_start=_punto[2]+1;												
+	for (_n=0;_n<4;_n++)
+	{
+		if ((_buffer[_ipAddressIndex+_start+_n]>=48) && (_buffer[_ipAddressIndex+_start+_n]<=57))
+		{
+			_ip3String[_n]=_buffer[_ipAddressIndex+_start+_n];		
+		}	
+		else
+		{
+			_n=3;													
+		}
+	}										
+	_webserverUtilsStringToValue (&_ip0String[0],3, &_ipValue0);
+	_webserverUtilsStringToValue (&_ip1String[0],3, &_ipValue1);
+	_webserverUtilsStringToValue (&_ip2String[0],3,	&_ipValue2);
+	_webserverUtilsStringToValue (&_ip3String[0],3,	&_ipValue3);		
+	ipValue[0]=_ipValue0;
+	ipValue[1]=_ipValue1;
+	ipValue[2]=_ipValue2;
+	ipValue[3]=_ipValue3;	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+unsigned char _webserverUtilsGtwValueFromBufferGet(unsigned char *buffer, unsigned char *ipValue)
+{
+	unsigned int _ipAddressIndex;
+	volatile unsigned int _start;
+	unsigned int _punto[3];
+	unsigned char _n;
+	unsigned char _ip0String[3]={0,0,0};
+	unsigned char _ip1String[3]={0,0,0};
+	unsigned char _ip2String[3]={0,0,0};
+	unsigned char _ip3String[3]={0,0,0};
+	unsigned char _ipValue0;
+	unsigned char _ipValue1;
+	unsigned char _ipValue2;
+	unsigned char _ipValue3;
+	
+	
+	_ipAddressIndex=strindex((char *)_buffer,"gtwValue=")+9;	
+	_start=0;
+	for (_n=0;_n<4;_n++)
+	{
+		if (_buffer[_ipAddressIndex+_start+_n]=='.')
+		{
+			_punto[0]=_n+_start;
+			_n=3;										
+		}	
+		else
+		{
+			_ip0String[_n]=_buffer[_ipAddressIndex+_start+_n];
+		}
+	}
+	_start=_punto[0]+1;									
+	for (_n=0;_n<4;_n++)
+	{
+		if (_buffer[_ipAddressIndex+_start+_n]=='.')
+		{
+			_punto[1]=_n+_start;
+			_n=3;										
+		}					
+		else
+		{
+			_ip1String[_n]=_buffer[_ipAddressIndex+_start+_n];
+		}
+	}									
+	_start=_punto[1]+1;			
+	for (_n=0;_n<4;_n++)
+	{
+		if (_buffer[_ipAddressIndex+_start+_n]=='.')
+		{
+			_punto[2]=_n+_start;
+			_n=3;										
+		}	
+		else
+		{
+			_ip2String[_n]=_buffer[_ipAddressIndex+_start+_n];
+		}
+	}									
+	_start=_punto[2]+1;												
+	for (_n=0;_n<4;_n++)
+	{
+		if ((_buffer[_ipAddressIndex+_start+_n]>=48) && (_buffer[_ipAddressIndex+_start+_n]<=57))
+		{
+			_ip3String[_n]=_buffer[_ipAddressIndex+_start+_n];		
+		}	
+		else
+		{
+			_n=3;													
+		}
+	}										
+	_webserverUtilsStringToValue (&_ip0String[0],3, &_ipValue0);
+	_webserverUtilsStringToValue (&_ip1String[0],3, &_ipValue1);
+	_webserverUtilsStringToValue (&_ip2String[0],3,	&_ipValue2);
+	_webserverUtilsStringToValue (&_ip3String[0],3,	&_ipValue3);		
+	ipValue[0]=_ipValue0;
+	ipValue[1]=_ipValue1;
+	ipValue[2]=_ipValue2;
+	ipValue[3]=_ipValue3;	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+void webServerDoTask (void)
+{
+	unsigned char _socketEstado;
+	
+	char _centenas[4];
+	char _decenas[4];
+	char _unidades[4];
+	char _ascii[3]={48,48,48};
+	
+
+	
+
+	int _getidx;
+	
+	int _postidx;
+	
+	char _ip0String[3]={0,0,0};
+	char _ip1String[3]={0,0,0};
+	char _ip2String[3]={0,0,0};
+	char _ip3String[3]={0,0,0};
+	
+	unsigned char _i;
+	
+	unsigned int _ipAddressIndex;
+	
+	unsigned char _ipDigit=0;
+	unsigned char _ipBlock=0;
+	
+	unsigned char _punto[3];
+	unsigned char _start;
+	unsigned char _lenght[3];
+	
+	unsigned char _c;
+	unsigned char _d;
+	unsigned char _u;
+	
+	
+	volatile unsigned char _valor0;
+	volatile unsigned char _valor1;
+	volatile unsigned char _valor2;
+	volatile unsigned char _valor3;
+	
+	unsigned char _valid;
+	unsigned char _value;
+
+	
+	unsigned char _ipGet[4];
+	
+	
+	if (webServerEstado==0x01)
+	{
+		
+		_socketEstado=getSn_SR(1);
+		
+		switch (_socketEstado)
+		{
+			case SOCK_CLOSED:
+			{
+				// Crea un socket TCP en puerto 80
+				if (socket(1,Sn_MR_TCP,80,0) > 0)
+				{
+					// Escuchar en el socket 0
+					if (listen(1) <= 0)
+					{
+					}
+				}
+				break;
+			}
+			
+			case SOCK_ESTABLISHED:
+			{
+				unsigned int _rsize;
+				_rsize=getSn_RX_RSR(1);
+				if (_rsize>0)
+				{
+					send(1,_hea,strlen((char *)_hea));						
+					recv(1,_bufferRx,_rsize);
+					_getidx=strindex((char *)_buffer,"GET / ");
+					_postidx=strindex((char *)_bufferRx,"POST /");
+					
+					if (_postidx >= 0) 
+					{
+						sendto(0,&_bufferRx[0],strlen((char *)_bufferRx),&ip[0],2234);		// Send Answer if needed	
+						if (_webserverUtilsStringFromBufferGet(&_bufferRx[0],1,&_ipString[0])==0x01)
+						{
+							sendto(0,&_ipString[0],strlen((char *)_ipString),&ip[0],2234);		// Send Answer if needed							
+						}
+						
+						if (_webserverUtilsStringFromBufferGet(&_bufferRx[0],2,&_submaskString[0])==0x01)
+						{
+						sendto(0,&_submaskString[0],strlen((char *)_submaskString),&ip[0],2234);		// Send Answer if needed							
+						}
+						
+						if (_webserverUtilsStringFromBufferGet(&_bufferRx[0],3,&_gtwString[0])==0x01)
+						{
+							sendto(0,&_gtwString[0],strlen((char *)_gtwString),&ip[0],2234);		// Send Answer if needed							
+						}
+						
+						if (_webserverUtilsStringFromBufferGet(&_bufferRx[0],4,&_edificioString[0])==0x01)
+						{
+							sendto(0,&_edificioString[0],strlen((char *)_edificioString),&ip[0],2234);		// Send Answer if needed							
+						}
+						
+						if (_webserverUtilsStringFromBufferGet(&_bufferRx[0],5,&_lineaString[0])==0x01)
+						{
+							sendto(0,&_lineaString[0],strlen((char *)_lineaString),&ip[0],2234);		// Send Answer if needed							
+						}
+						
+						if (_webserverUtilsStringFromBufferGet(&_bufferRx[0],6,&_adminPassString[0])==0x01)
+						{
+							sendto(0,&_adminPassString[0],strlen((char *)_adminPassString),&ip[0],2234);		// Send Answer if needed							
+						}
+						
+						
+						
+						
+						
+						
+						
+						
+						_webserverUtilsIpValueFromBufferGet(&_buffer[0], 		&ipAdrress[0]);
+						_webserverUtilsSubmaskValueFromBufferGet(&_buffer[0], &subMask[0]);
+						_webserverUtilsGtwValueFromBufferGet(&_buffer[0], &gtwAddress[0]);
+						 confCambiar(0x00, &ipAdrress[0], 0x04);		
+					}			
+
+					// ip
+					stringToBufferCopy("IP Address:<input type=\"text\" name=\"ipValue\" value=\"");
+					_webserverPrintIp(&ipAdrress[0]);
+					stringToBufferCat("\"><br>\r\n");
+					// ip
+					// submask
+					stringToBufferCat("Subnet Mask:<input type=\"text\" name=\"submaskValue\" value=\"");
+					_webserverPrintIp(&subMask[0]);
+					stringToBufferCat("\"><br>\r\n");
+					// submask
+					// gateway
+					stringToBufferCat("Gateway:<input type=\"text\" name=\"gtwValue\" value=\"");
+					_webserverPrintIp(&gtwAddress[0]);
+					stringToBufferCat("\"><br>\r\n");
+					// gateway
+					// nombre edificio
+					stringToBufferCat("Nombre Edificio:<input type=\"text\" name=\"edificioNombre\" value=\"");
+					stringToBufferCat (nombreEdificio);
+					stringToBufferCat("\"><br>\r\n");
+					// nombre edificio
+					// nombre linea
+					stringToBufferCat("Nombre Linea:<input type=\"text\" name=\"lineaNombre\" value=\"");
+					stringToBufferCat (nombreLinea);	
+					stringToBufferCat("\"><br>\r\n");
+					// nombre linea
+					// nombre linea
+					stringToBufferCat("Pass Admin:<input type=\"text\" name=\"adminPass\" value=\"");
+					
+					
+					
+					strcat(&_buffer[0],&passAdmin[0]);	
+					stringToBufferCat("\"><br>\r\n");
+					// nombre linea					
+					stringToBufferCat("<input type=\"submit\" name=\"Aplicar\" value=\"Apply\">");		
+					if (_postidx >= 0) 
+					{
+						stringToBufferCat("\<br>\r\n");
+						stringToBufferCat("You must reboot this gateway to apply these changes.\r\n");		
+					}								
+					
+					
+					send(1,_buffer,strlen((char *)_buffer));		
+
+
+//					daliTransceiverStop();
+					
+//					daliBloqueanteSend (0xFF, 0x2B,0x05, &_valid, &_value);		//Group 10 INCENDIO Recall Max Level
+					
+//					stringToBufferCopy("Acción manual correctamente ejecutada.\r\n");
+					
+				
+					
+					
+					
+//					send(1,_buffer,strlen((char *)_buffer));
+
+					Delay(100);
+					disconnect(1);	
+				}					
+				else
+				{
+					Delay(1);
+				}			
+				break;
+			}		
+			
+			case SOCK_FIN_WAIT:
+      case SOCK_CLOSING:
+      case SOCK_TIME_WAIT:
+      case SOCK_CLOSE_WAIT:
+      case SOCK_LAST_ACK:
+			{
+				close(1);
+				break;
+			}
+			
+			
+			
+			
+		}	
+	}	
+}
+
+
+
+
+/*
+
+
+				
+				
+				
+				
+				
+				
+				
+								
+				
+				
+				if (webserverConEstablishedDelay==0)
+				{
+					webserverConEstablishedDelay=10000;
+				}			
+				
+				Delay(200);
+				_rsize=getSn_RX_RSR(1);
+				if (_rsize>0)
+				{
+					if (recv(1,_buffer,_rsize) <= 0)
+					{
+						disconnect(1);
+						webserverConEstablishedDelay=0;
+						return;
+					}
+			
+					_getidx=strindex((char *)_buffer,"GET / ");
+					_postidx=strindex((char *)_buffer,"POST /");
+					if ((_getidx >= 0) || (_postidx >= 0)) 
+					{
+						//	sendto(0,&_buffer[0],strlen((char *)_buffer),&ip[0],2234);		// Send Answer if needed				
+							if (_postidx >= 0) 
+							{
+								//		if (strindex((char *)_buffer,"Aplicar=Apply") > 0)
+								//	_webserverUtilsIpValueFromBufferGet(&_buffer[0], 		&ipAdrress[0]);
+								//	_webserverUtilsSubmaskValueFromBufferGet(&_buffer[0], &subMask[0]);
+								//	_webserverUtilsGtwValueFromBufferGet(&_buffer[0], &gtwAddress[0]);
+								//	confCambiar(0x00, &ipAdrress[0], 0x04);		
+							}
+
+							stringToBufferCopy("HTTP/1.0 200 OK\r\nContent-Type: text/html\r\n\r\n");			
+							//stringToBufferCat("<html><body><span style=\"color:#0000A0\">\r\n");
+							stringToBufferCat("<html><body>\r\n");
+							stringToBufferCat("<p><form method=\"POST\">\r\n");
+							//stringToBufferCat("<h1>NORMALINK GATEWAY Embedded Web Server</h1>\r\n");								
+						
+							// ip
+							stringToBufferCat("IP Address:<input type=\"text\" name=\"ipValue\" value=\"");
+							_webserverPrintIp(&ipAdrress[0]);
+							stringToBufferCat("\"><br>\r\n");
+							// ip
+
+							// submask
+							stringToBufferCat("Subnet Mask:<input type=\"text\" name=\"submaskValue\" value=\"");
+							_webserverPrintIp(&subMask[0]);
+							stringToBufferCat("\"><br>\r\n");
+							// submask
+																
+							// gateway
+							stringToBufferCat("Gateway:<input type=\"text\" name=\"gtwValue\" value=\"");
+							_webserverPrintIp(&gtwAddress[0]);
+							stringToBufferCat("\"><br>\r\n");
+							// gateway
+							
+							// nombre edificio
+							stringToBufferCat("Nombre Edificio:<input type=\"text\" name=\"edificioNombre\" value=\"");
+							stringToBufferCat (nombreEdificio);
+							stringToBufferCat("\"><br>\r\n");
+							// nombre edificio
+							
+							// nombre linea
+							stringToBufferCat("Nombre Linea:<input type=\"text\" name=\"lineaNombre\" value=\"");
+							stringToBufferCat (nombreLinea);	
+							stringToBufferCat("\"><br>\r\n");
+							// nombre linea
+							
+							// nombre linea
+							stringToBufferCat("Pass Admin:<input type=\"text\" name=\"adminPass\" value=\"");
+							strcat(&_buffer[0],&passAdmin[0]);	
+							stringToBufferCat("\"><br>\r\n");
+							
+							// nombre linea					
+							stringToBufferCat("<input type=\"submit\" name=\"Aplicar\" value=\"Apply\">");		
+							if (_postidx >= 0) 
+							{
+								stringToBufferCat("\<br>\r\n");
+								stringToBufferCat("You must reboot this gateway to apply these changes.\r\n");		
+							}							
+							//0	if (send(1,_buffer,strlen((char *)_buffer)) <= 0) break;
+							send(1,_buffer,strlen((char *)_buffer));						
+							// Disconnect the socket						
+							disconnect(1);
+							webserverConEstablishedDelay=0;
+					}
+					else
+					{
+						if (webserverConEstablishedDelay>0)
+						{
+							webserverConEstablishedDelay--;						
+						}
+						else
+						{
+							disconnect(1);	
+						}	
+					}						
+				}
+				else
+				{				
+					if (webserverConEstablishedDelay>0)
+					{
+						webserverConEstablishedDelay--;						
+					}
+					else
+					{
+						disconnect(1);	
+					}					
+				}
+				
+	*/
+	
+
+

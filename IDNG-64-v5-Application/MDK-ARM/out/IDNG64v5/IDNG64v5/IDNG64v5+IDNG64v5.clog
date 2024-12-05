@@ -1,0 +1,13 @@
+# CMSIS Build Audit File generated on 2024-07-09T13:39:29
+
+# Project Description File: c:/Users/i.garcia/Documents/IDNG-64-v5-Application/IDNG-64-v5-Application/MDK-ARM/IDNG64v5+IDNG64v5.cprj
+
+# Toolchain Configuration File: C:/Users/i.garcia/.vcpkg/artifacts/2139c4c6/tools.open.cmsis.pack.cmsis.toolbox/2.4.0/etc/AC6.6.16.2.cmake
+
+# Package: ARM::CMSIS@5.9.0
+  Location: C:\Users\i.garcia\AppData\Local\arm\packs/ARM/CMSIS/5.9.0/
+
+  * Component: ARM::CMSIS:CORE@5.6.0
+
+# Package: Keil::STM32G0xx_DFP@1.5.0
+  Location: C:\Users\i.garcia\AppData\Local\arm\packs/Keil/STM32G0xx_DFP/1.5.0/

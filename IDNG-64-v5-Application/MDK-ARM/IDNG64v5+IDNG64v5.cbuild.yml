@@ -1,0 +1,350 @@
+build:
+  generated-by: csolution version 2.4.0
+  solution: IDNG64v5.csolution.yml
+  project: IDNG64v5.cproject.yml
+  context: IDNG64v5+IDNG64v5
+  compiler: AC6@6.21.0
+  device: STM32G070CBTx
+  device-pack: Keil::STM32G0xx_DFP@1.5.0
+  processor:
+    endian: little
+    fpu: off
+    core: Cortex-M0+
+  packs:
+    - pack: ARM::CMSIS@5.9.0
+      path: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0
+    - pack: Keil::STM32G0xx_DFP@1.5.0
+      path: ${CMSIS_PACK_ROOT}/Keil/STM32G0xx_DFP/1.5.0
+  optimize: debug
+  debug: on
+  misc:
+    C:
+      - -std=c99
+      - -flto
+      - -fno-rtti
+      - -funsigned-char
+      - -fshort-enums
+      - -fshort-wchar
+      - -ffunction-sections
+      - -w
+    CPP:
+      - -xc++
+      - -std=c++11
+      - -flto
+      - -fno-rtti
+      - -funsigned-char
+      - -fshort-enums
+      - -fshort-wchar
+      - -ffunction-sections
+      - -w
+    Link:
+      - --library_type=microlib
+      - --map
+      - --load_addr_map_info
+      - --xref
+      - --callgraph
+      - --symbols
+      - --info sizes
+      - --info totals
+      - --info unused
+      - --info veneers
+      - --lto
+      - --strict
+      - --summary_stderr
+      - --info summarysizes
+  define:
+    - USE_HAL_DRIVER
+    - STM32G070xx
+    - __MICROLIB
+    - STM32G070xx
+    - _RTE_
+  define-asm:
+    - STM32G070xx
+    - _RTE_
+  add-path:
+    - ../Core/Inc
+    - ../Drivers/STM32G0xx_HAL_Driver/Inc
+    - ../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy
+    - ../Drivers/CMSIS/Device/ST/STM32G0xx/Include
+    - ../Drivers/CMSIS/Include
+    - .
+    - ../app
+    - RTE/_IDNG64v5
+    - ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/Core/Include
+    - ${CMSIS_PACK_ROOT}/Keil/STM32G0xx_DFP/1.5.0/Drivers/CMSIS/Device/ST/STM32G0xx/Include
+  output-dirs:
+    intdir: tmp/IDNG64v5/IDNG64v5
+    outdir: out/IDNG64v5/IDNG64v5
+    rtedir: RTE
+  output:
+    - type: elf
+      file: IDNG64v5.axf
+  components:
+    - component: ARM::CMSIS:CORE@5.6.0
+      condition: ARMv6_7_8-M Device
+      from-pack: ARM::CMSIS@5.9.0
+      selected-by: ARM::CMSIS:CORE
+      files:
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/Core/Include
+          category: include
+          version: 5.6.0
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/Core/Include/tz_context.h
+          category: header
+          version: 5.6.0
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/Core/Template/ARMv8-M/main_s.c
+          category: sourceC
+          attr: template
+          version: 1.1.1
+          select: Secure mode 'main' module for ARMv8-M
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/Core/Template/ARMv8-M/tz_context.c
+          category: sourceC
+          attr: template
+          version: 1.1.1
+          select: RTOS Context Management (TrustZone for ARMv8-M)
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/Documentation/Core/html/index.html
+          category: doc
+          version: 5.6.0
+  linker:
+    script: IDNG64v5_IDNG64v5.sct
+  groups:
+    - group: Application/MDK-ARM
+      files:
+        - file: startup_stm32g070xx.s
+          category: sourceAsm
+          misc:
+            ASM:
+              - -masm=auto
+              - -x assembler
+    - group: Application/User/Core
+      files:
+        - file: ../Core/Src/main.c
+          category: sourceC
+        - file: ../Core/Src/stm32g0xx_it.c
+          category: sourceC
+        - file: ../Core/Src/stm32g0xx_hal_msp.c
+          category: sourceC
+    - group: Drivers/STM32G0xx_HAL_Driver
+      files:
+        - file: ../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_iwdg.c
+          category: sourceC
+        - file: ../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c.c
+          category: sourceC
+        - file: ../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c_ex.c
+          category: sourceC
+        - file: ../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc.c
+          category: sourceC
+        - file: ../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c
+          category: sourceC
+        - file: ../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_rcc.c
+          category: sourceC
+        - file: ../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c
+          category: sourceC
+        - file: ../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c
+          category: sourceC
+        - file: ../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_gpio.c
+          category: sourceC
+        - file: ../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c
+          category: sourceC
+        - file: ../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c
+          category: sourceC
+        - file: ../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_dma.c
+          category: sourceC
+        - file: ../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c
+          category: sourceC
+        - file: ../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr_ex.c
+          category: sourceC
+        - file: ../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c
+          category: sourceC
+        - file: ../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c
+          category: sourceC
+        - file: ../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_exti.c
+          category: sourceC
+        - file: ../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rtc.c
+          category: sourceC
+        - file: ../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rtc_ex.c
+          category: sourceC
+        - file: ../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_spi.c
+          category: sourceC
+        - file: ../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_spi_ex.c
+          category: sourceC
+        - file: ../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim.c
+          category: sourceC
+        - file: ../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim_ex.c
+          category: sourceC
+    - group: Drivers/CMSIS
+      files:
+        - file: ../Core/Src/system_stm32g0xx.c
+          category: sourceC
+    - group: STM32G070
+      files:
+        - file: board.c
+          category: sourceC
+        - file: board.h
+          category: header
+        - file: tasks.c
+          category: sourceC
+        - file: tasks.h
+          category: header
+    - group: User
+      files:
+        - file: ../app/ethFramming.c
+          category: sourceC
+        - file: ../app/ethFramming.h
+          category: header
+        - file: ../app/ethTransceiver.c
+          category: sourceC
+        - file: ../app/ethTransceiver.h
+          category: header
+        - file: ../app/ethPing.c
+          category: sourceC
+        - file: ../app/actualLevel.c
+          category: sourceC
+        - file: ../app/botonera.c
+          category: sourceC
+        - file: ../app/config.c
+          category: sourceC
+        - file: ../app/dADSA.c
+          category: sourceC
+        - file: ../app/dali.c
+          category: sourceC
+        - file: ../app/daliAddressing.c
+          category: sourceC
+        - file: ../app/daliCommands.c
+          category: sourceC
+        - file: ../app/daliLoop.c
+          category: sourceC
+        - file: ../app/daliSensores.c
+          category: sourceC
+        - file: ../app/daliTransceiver.c
+          category: sourceC
+        - file: ../app/daliUtils.c
+          category: sourceC
+        - file: ../app/dALS.c
+          category: sourceC
+        - file: ../app/dANI.c
+          category: sourceC
+        - file: ../app/dAPSA.c
+          category: sourceC
+        - file: ../app/dAQCGL.c
+          category: sourceC
+        - file: ../app/dAQDTL.c
+          category: sourceC
+        - file: ../app/dASE.c
+          category: sourceC
+        - file: ../app/dASRA.c
+          category: sourceC
+        - file: ../app/debug.c
+          category: sourceC
+        - file: ../app/embeddedBootloader.c
+          category: sourceC
+        - file: ../app/fallos.c
+          category: sourceC
+        - file: ../app/historico.c
+          category: sourceC
+        - file: ../app/historicoTest.c
+          category: sourceC
+        - file: ../app/iED.c
+          category: sourceC
+        - file: ../app/interfaces.c
+          category: sourceC
+        - file: ../app/loop.c
+          category: sourceC
+        - file: ../app/m25p.c
+          category: sourceC
+        - file: ../app/normalink.c
+          category: sourceC
+        - file: ../app/normaLink62386P102.c
+          category: sourceC
+        - file: ../app/normaLink62386P202.c
+          category: sourceC
+        - file: ../app/normaLink62386P209.c
+          category: sourceC
+        - file: ../app/normaLinkCfgInfoPasarela.c
+          category: sourceC
+        - file: ../app/normaLinkCmdPasarela.c
+          category: sourceC
+        - file: ../app/normaLinkDaliUtils.c
+          category: sourceC
+        - file: ../app/normaLinkSensores.c
+          category: sourceC
+        - file: ../app/normaLinkSingleLoop.c
+          category: sourceC
+        - file: ../app/polling.c
+          category: sourceC
+        - file: ../app/qSN.c
+          category: sourceC
+        - file: ../app/rtcc.c
+          category: sourceC
+        - file: ../app/sensores.c
+          category: sourceC
+        - file: ../app/sensoresConfig.c
+          category: sourceC
+        - file: ../app/sensors.c
+          category: sourceC
+        - file: ../app/sensorScanning.c
+          category: sourceC
+        - file: ../app/sensorStoring.c
+          category: sourceC
+        - file: ../app/spi1.c
+          category: sourceC
+        - file: ../app/spi2.c
+          category: sourceC
+        - file: ../app/storage.c
+          category: sourceC
+        - file: ../app/systick.c
+          category: sourceC
+        - file: ../app/temp.c
+          category: sourceC
+        - file: ../app/test.c
+          category: sourceC
+        - file: ../app/utils.c
+          category: sourceC
+        - file: ../app/wdt.c
+          category: sourceC
+        - file: ../app/webserver.c
+          category: sourceC
+        - file: ../app/sensoresGrupos/sensoresGrupos.c
+          category: sourceC
+        - file: ../app/sensoresGrupos/sensoresGruposDetectoresPresencia.c
+          category: sourceC
+        - file: ../app/sensoresGrupos/sensoresGruposPulsadoresAccionBasculante.c
+          category: sourceC
+        - file: ../app/sensoresGrupos/sensoresGruposPulsadoresAccionFija.c
+          category: sourceC
+        - file: ../app/sensoresGrupos/sensoresGruposPulsadoresAccionRegulacion.c
+          category: sourceC
+        - file: ../app/sensoresGrupos/sensoresGruposPulsadoresAccionTemporizada.c
+          category: sourceC
+        - file: ../app/sensoresGrupos/sensoresGruposPulsadoresTW.c
+          category: sourceC
+        - file: ../app/sensoresGrupos/sensoresGruposReguladoresLuz.c
+          category: sourceC
+        - file: ../app/w5100/md5.c
+          category: sourceC
+        - file: ../app/w5100/md5.h
+          category: header
+        - file: ../app/w5100/readme.txt
+          category: doc
+        - file: ../app/w5100/socket.c
+          category: sourceC
+        - file: ../app/w5100/socket.h
+          category: header
+        - file: ../app/w5100/types.h
+          category: header
+        - file: ../app/w5100/w5100.c
+          category: sourceC
+        - file: ../app/w5100/w5100.h
+          category: header
+  constructed-files:
+    - file: RTE/_IDNG64v5/RTE_Components.h
+      category: header
+  licenses:
+    - license: <unknown>
+      packs:
+        - pack: ARM::CMSIS@5.9.0
+      components:
+        - component: ARM::CMSIS:CORE@5.6.0
+    - license: <unknown>
+      license-agreement: ${CMSIS_PACK_ROOT}/Keil/STM32G0xx_DFP/1.5.0/LICENSE
+      packs:
+        - pack: Keil::STM32G0xx_DFP@1.5.0

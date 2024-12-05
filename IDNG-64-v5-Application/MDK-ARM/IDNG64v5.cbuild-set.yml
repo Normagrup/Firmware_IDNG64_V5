@@ -1,0 +1,4 @@
+cbuild-set:
+  generated-by: csolution version 2.4.0
+  contexts:
+    - context: IDNG64v5+IDNG64v5

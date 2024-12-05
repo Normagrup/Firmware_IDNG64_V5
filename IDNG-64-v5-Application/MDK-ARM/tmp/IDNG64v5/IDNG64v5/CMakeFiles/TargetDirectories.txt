@@ -1,0 +1,4 @@
+C:/Users/i.garcia/Documents/IDNG-64-v5-Application/IDNG-64-v5-Application/MDK-ARM/tmp/IDNG64v5/IDNG64v5/CMakeFiles/database.dir
+C:/Users/i.garcia/Documents/IDNG-64-v5-Application/IDNG-64-v5-Application/MDK-ARM/tmp/IDNG64v5/IDNG64v5/CMakeFiles/IDNG64v5.dir
+C:/Users/i.garcia/Documents/IDNG-64-v5-Application/IDNG-64-v5-Application/MDK-ARM/tmp/IDNG64v5/IDNG64v5/CMakeFiles/edit_cache.dir
+C:/Users/i.garcia/Documents/IDNG-64-v5-Application/IDNG-64-v5-Application/MDK-ARM/tmp/IDNG64v5/IDNG64v5/CMakeFiles/rebuild_cache.dir

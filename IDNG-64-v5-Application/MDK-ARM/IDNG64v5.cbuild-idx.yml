@@ -1,0 +1,9 @@
+build-idx:
+  generated-by: csolution version 2.4.0
+  csolution: IDNG64v5.csolution.yml
+  cprojects:
+    - cproject: IDNG64v5.cproject.yml
+  cbuilds:
+    - cbuild: IDNG64v5+IDNG64v5.cbuild.yml
+      project: IDNG64v5
+      configuration: +IDNG64v5

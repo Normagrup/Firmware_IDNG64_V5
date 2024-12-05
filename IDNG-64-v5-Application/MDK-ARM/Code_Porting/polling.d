@@ -1,0 +1,16 @@
+code_porting\polling.o: ..\app\polling.c
+code_porting\polling.o: ..\app\dali.h
+code_porting\polling.o: ..\app\polling.h
+code_porting\polling.o: ..\app\daliLoop.h
+code_porting\polling.o: ..\app\historicoTest.h
+code_porting\polling.o: ..\app\utils.h
+code_porting\polling.o: ..\app\daliSensores.h
+code_porting\polling.o: ..\app\dataTypes.h
+code_porting\polling.o: ..\app\interfaces.h
+code_porting\polling.o: ..\app\interfaces.h
+code_porting\polling.o: ..\app\interfaces.h
+code_porting\polling.o: ..\app\interfaces.h
+code_porting\polling.o: ..\app\interfaces.h
+code_porting\polling.o: ..\app\interfaces.h
+code_porting\polling.o: ..\app\interfaces.h
+code_porting\polling.o: ..\app\interfaces.h

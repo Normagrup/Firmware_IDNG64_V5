@@ -1,0 +1,175 @@
+project:
+  packs:
+    - pack: Keil::STM32G0xx_DFP
+    - pack: ARM::CMSIS@5.9.0
+  setups:
+    - setup: Options for IDNG64v5
+      add-path:
+        - ../Core/Inc
+        - ../Drivers/STM32G0xx_HAL_Driver/Inc
+        - ../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy
+        - ../Drivers/CMSIS/Device/ST/STM32G0xx/Include
+        - ../Drivers/CMSIS/Include
+        - .
+        - ../app
+      debug: "on"
+      define:
+        - USE_HAL_DRIVER
+        - STM32G070xx
+        - __MICROLIB
+      misc:
+        - C:
+            - -std=c99
+          C-CPP:
+            - -flto
+            - -fno-rtti
+            - -funsigned-char
+            - -fshort-enums
+            - -fshort-wchar
+            - -ffunction-sections
+            - -w
+          CPP:
+            - -xc++
+            - -std=c++11
+          Link:
+            - --library_type=microlib
+            - --map
+            - --load_addr_map_info
+            - --xref
+            - --callgraph
+            - --symbols
+            - --info sizes
+            - --info totals
+            - --info unused
+            - --info veneers
+            - --lto
+            - --strict
+            - --summary_stderr
+            - --info summarysizes
+  linker:
+    - script: IDNG64v5_IDNG64v5.sct
+  groups:
+    - group: Application/MDK-ARM
+      files:
+        - file: startup_stm32g070xx.s
+          misc:
+            - ASM:
+                - -masm=auto
+                - -x assembler
+    - group: Application/User/Core
+      files:
+        - file: ../Core/Src/main.c
+        - file: ../Core/Src/stm32g0xx_it.c
+        - file: ../Core/Src/stm32g0xx_hal_msp.c
+    - group: Drivers/STM32G0xx_HAL_Driver
+      files:
+        - file: ../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_iwdg.c
+        - file: ../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c.c
+        - file: ../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c_ex.c
+        - file: ../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc.c
+        - file: ../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c
+        - file: ../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_rcc.c
+        - file: ../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c
+        - file: ../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c
+        - file: ../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_gpio.c
+        - file: ../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c
+        - file: ../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c
+        - file: ../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_dma.c
+        - file: ../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c
+        - file: ../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr_ex.c
+        - file: ../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c
+        - file: ../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c
+        - file: ../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_exti.c
+        - file: ../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rtc.c
+        - file: ../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rtc_ex.c
+        - file: ../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_spi.c
+        - file: ../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_spi_ex.c
+        - file: ../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim.c
+        - file: ../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim_ex.c
+    - group: Drivers/CMSIS
+      files:
+        - file: ../Core/Src/system_stm32g0xx.c
+    - group: STM32G070
+      files:
+        - file: board.c
+        - file: board.h
+        - file: tasks.c
+        - file: tasks.h
+    - group: User
+      files:
+        - file: ../app/ethFramming.c
+        - file: ../app/ethFramming.h
+        - file: ../app/ethTransceiver.c
+        - file: ../app/ethTransceiver.h
+        - file: ../app/ethPing.c
+        - file: ../app/actualLevel.c
+        - file: ../app/botonera.c
+        - file: ../app/config.c
+        - file: ../app/dADSA.c
+        - file: ../app/dali.c
+        - file: ../app/daliAddressing.c
+        - file: ../app/daliCommands.c
+        - file: ../app/daliLoop.c
+        - file: ../app/daliSensores.c
+        - file: ../app/daliTransceiver.c
+        - file: ../app/daliUtils.c
+        - file: ../app/dALS.c
+        - file: ../app/dANI.c
+        - file: ../app/dAPSA.c
+        - file: ../app/dAQCGL.c
+        - file: ../app/dAQDTL.c
+        - file: ../app/dASE.c
+        - file: ../app/dASRA.c
+        - file: ../app/debug.c
+        - file: ../app/embeddedBootloader.c
+        - file: ../app/fallos.c
+        - file: ../app/historico.c
+        - file: ../app/historicoTest.c
+        - file: ../app/iED.c
+        - file: ../app/interfaces.c
+        - file: ../app/loop.c
+        - file: ../app/m25p.c
+        - file: ../app/normalink.c
+        - file: ../app/normaLink62386P102.c
+        - file: ../app/normaLink62386P202.c
+        - file: ../app/normaLink62386P209.c
+        - file: ../app/normaLinkCfgInfoPasarela.c
+        - file: ../app/normaLinkCmdPasarela.c
+        - file: ../app/normaLinkDaliUtils.c
+        - file: ../app/normaLinkSensores.c
+        - file: ../app/normaLinkSingleLoop.c
+        - file: ../app/polling.c
+        - file: ../app/qSN.c
+        - file: ../app/rtcc.c
+        - file: ../app/sensores.c
+        - file: ../app/sensoresConfig.c
+        - file: ../app/sensors.c
+        - file: ../app/sensorScanning.c
+        - file: ../app/sensorStoring.c
+        - file: ../app/spi1.c
+        - file: ../app/spi2.c
+        - file: ../app/storage.c
+        - file: ../app/systick.c
+        - file: ../app/temp.c
+        - file: ../app/test.c
+        - file: ../app/utils.c
+        - file: ../app/wdt.c
+        - file: ../app/webserver.c
+        - file: ../app/sensoresGrupos/sensoresGrupos.c
+        - file: ../app/sensoresGrupos/sensoresGruposDetectoresPresencia.c
+        - file: ../app/sensoresGrupos/sensoresGruposPulsadoresAccionBasculante.c
+        - file: ../app/sensoresGrupos/sensoresGruposPulsadoresAccionFija.c
+        - file: ../app/sensoresGrupos/sensoresGruposPulsadoresAccionRegulacion.c
+        - file: ../app/sensoresGrupos/sensoresGruposPulsadoresAccionTemporizada.c
+        - file: ../app/sensoresGrupos/sensoresGruposPulsadoresTW.c
+        - file: ../app/sensoresGrupos/sensoresGruposReguladoresLuz.c
+        - file: ../app/w5100/md5.c
+        - file: ../app/w5100/md5.h
+        - file: ../app/w5100/readme.txt
+        - file: ../app/w5100/socket.c
+        - file: ../app/w5100/socket.h
+        - file: ../app/w5100/types.h
+        - file: ../app/w5100/w5100.c
+        - file: ../app/w5100/w5100.h
+  components:
+    - component: ARM::CMSIS:CORE

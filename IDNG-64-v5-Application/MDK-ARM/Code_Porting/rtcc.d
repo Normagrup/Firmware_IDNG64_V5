@@ -1,0 +1,16 @@
+code_porting\rtcc.o: ..\app\rtcc.c
+code_porting\rtcc.o: ..\app\polling.h
+code_porting\rtcc.o: ..\app\rtcc.h
+code_porting\rtcc.o: ..\app\temp.h
+code_porting\rtcc.o: ..\app\config.h
+code_porting\rtcc.o: C:\Keil_v5\ARM\5.06\Bin\..\include\string.h
+code_porting\rtcc.o: ..\app\m25p.h
+code_porting\rtcc.o: ..\app\dataTypes.h
+code_porting\rtcc.o: ..\app\dali.h
+code_porting\rtcc.o: ..\app\daliLoop.h
+code_porting\rtcc.o: ..\app\macros.h
+code_porting\rtcc.o: ..\app\rtcc.h
+code_porting\rtcc.o: ..\app\m25p.h
+code_porting\rtcc.o: ..\app\test.h
+code_porting\rtcc.o: ..\app\normalink.h
+code_porting\rtcc.o: ..\app\ethTransceiver.h

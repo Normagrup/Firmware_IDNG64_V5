@@ -1,0 +1,23 @@
+    //      INTERRUPTORES GENERALES.
+    //          Si hay algún interruptorGeneral activado no se ejecuta nada.
+    //      DETECTOR DE PRESENCIA.
+    //          Presency:
+    //              [Transmite la orden].
+    //          Vacancy:
+    //              [No hace nada].
+    //      PULSADORES ACCION BASCULANTE.
+    //          ---.
+    //      PULSADORES ACCION FIJA.
+    //          ---.
+    //      PULSADORES ACCION REGULACION.
+    //          Si hay algún pulsador regulacion en el grupo corriendo no se ejecuta nada hasta que no se detenga.
+    //      PULSADORES DE ACCION TEMPORIZADA.
+    //          Corriendo:
+    //              [Transmite la orden].
+    //          Detenido:
+    //              [No hace nada].
+    //      REGULADORES DE LUZ.
+    //          ---.
+    //  EN CASO DE QUE HAYA DETECTORES DE PRESENCIA Y PULSADORES DE ACCION TEMPORIZADA SE COMBINAN AMBAS ACCIONES
+    //  DE TAL FORMA QUE PARA TRANSMITIR LA ORDEN SE REQUIERE QUE O BIEN LA PARTE DE DETECCION DE PRESENCIA
+    //  ESTE EN ESTADO PRESENCY O EL TEMPORIZADOR ESTE CORRIENDO.

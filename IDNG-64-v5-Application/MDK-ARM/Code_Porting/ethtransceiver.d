@@ -1,0 +1,11 @@
+code_porting\ethtransceiver.o: ..\app\ethTransceiver.c
+code_porting\ethtransceiver.o: ..\app\config.h
+code_porting\ethtransceiver.o: C:\Keil_v5\ARM\5.06\Bin\..\include\string.h
+code_porting\ethtransceiver.o: ..\app\m25p.h
+code_porting\ethtransceiver.o: ..\app\dataTypes.h
+code_porting\ethtransceiver.o: ..\app\ethFramming.h
+code_porting\ethtransceiver.o: ..\app\ethTransceiver.h
+code_porting\ethtransceiver.o: ..\app\systick.h
+code_porting\ethtransceiver.o: ..\app\daliUtils.h
+code_porting\ethtransceiver.o: ..\app\w5100/w5100.h
+code_porting\ethtransceiver.o: ..\app\iED.h

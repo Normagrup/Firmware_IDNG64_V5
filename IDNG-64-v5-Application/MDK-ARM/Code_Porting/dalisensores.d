@@ -1,0 +1,13 @@
+code_porting\dalisensores.o: ..\app\daliSensores.c
+code_porting\dalisensores.o: ..\app\dataTypes.h
+code_porting\dalisensores.o: ..\app\sensores.h
+code_porting\dalisensores.o: ..\app\sensoresConfig.h
+code_porting\dalisensores.o: ..\app\interfaces.h
+code_porting\dalisensores.o: ..\app\interfaces.h
+code_porting\dalisensores.o: ..\app\interfaces.h
+code_porting\dalisensores.o: ..\app\interfaces.h
+code_porting\dalisensores.o: ..\app\interfaces.h
+code_porting\dalisensores.o: ..\app\interfaces.h
+code_porting\dalisensores.o: ..\app\interfaces.h
+code_porting\dalisensores.o: ..\app\interfaces.h
+code_porting\dalisensores.o: ..\app\dali.h

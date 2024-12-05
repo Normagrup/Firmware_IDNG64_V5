@@ -1,0 +1,11 @@
+code_porting\ethframming.o: ..\app\ethFramming.c
+code_porting\ethframming.o: ..\app\normaLink62386P102.h
+code_porting\ethframming.o: ..\app\normaLink62386P202.h
+code_porting\ethframming.o: ..\app\normaLinkCfgInfoPasarela.h
+code_porting\ethframming.o: ..\app\normaLinkSingleLoop.h
+code_porting\ethframming.o: ..\app\normaLinkCmdPasarela.h
+code_porting\ethframming.o: ..\app\normaLinkDaliUtils.h
+code_porting\ethframming.o: ..\app\normalink.h
+code_porting\ethframming.o: ..\app\w5100/socket.h
+code_porting\ethframming.o: ..\app\w5100/w5100.h
+code_porting\ethframming.o: ..\app\mainCfg.h

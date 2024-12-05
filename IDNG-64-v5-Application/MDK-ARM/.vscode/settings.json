@@ -1,0 +1,11 @@
+{
+    "cmsis-csolution.actions": [
+        {
+            "path": "IDNG64v5.csolution.yml",
+            "target": "IDNG64v5",
+            "config": {
+                "debug": "Arm Debugger"
+            }
+        }
+    ]
+}

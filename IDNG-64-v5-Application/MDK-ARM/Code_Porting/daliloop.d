@@ -1,0 +1,16 @@
+code_porting\daliloop.o: ..\app\daliLoop.c
+code_porting\daliloop.o: ..\app\macros.h
+code_porting\daliloop.o: ..\app\dali.h
+code_porting\daliloop.o: ..\app\m25p.h
+code_porting\daliloop.o: ..\app\daliLoop.h
+code_porting\daliloop.o: ..\app\temp.h
+code_porting\daliloop.o: ..\app\config.h
+code_porting\daliloop.o: C:\Keil_v5\ARM\5.06\Bin\..\include\string.h
+code_porting\daliloop.o: ..\app\m25p.h
+code_porting\daliloop.o: ..\app\dataTypes.h
+code_porting\daliloop.o: ..\app\dali.h
+code_porting\daliloop.o: ..\app\daliLoop.h
+code_porting\daliloop.o: ..\app\rtcc.h
+code_porting\daliloop.o: ..\app\m25p.h
+code_porting\daliloop.o: ..\app\test.h
+code_porting\daliloop.o: ..\app\fallos.h

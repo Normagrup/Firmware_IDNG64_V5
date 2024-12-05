@@ -1,0 +1,13 @@
+code_porting\normalinkcfginfopasarela.o: ..\app\normaLinkCfgInfoPasarela.c
+code_porting\normalinkcfginfopasarela.o: ..\app\normalink.h
+code_porting\normalinkcfginfopasarela.o: ..\app\config.h
+code_porting\normalinkcfginfopasarela.o: C:\Keil_v5\ARM\5.06\Bin\..\include\string.h
+code_porting\normalinkcfginfopasarela.o: ..\app\m25p.h
+code_porting\normalinkcfginfopasarela.o: ..\app\dataTypes.h
+code_porting\normalinkcfginfopasarela.o: ..\app\rtcc.h
+code_porting\normalinkcfginfopasarela.o: ..\app\config.h
+code_porting\normalinkcfginfopasarela.o: ..\app\m25p.h
+code_porting\normalinkcfginfopasarela.o: ..\app\historico.h
+code_porting\normalinkcfginfopasarela.o: ..\app\storage.h
+code_porting\normalinkcfginfopasarela.o: ..\app\ethFramming.h
+code_porting\normalinkcfginfopasarela.o: ..\app\mainCfg.h

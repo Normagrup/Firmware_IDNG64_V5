@@ -1,0 +1,32 @@
+    //      INTERRUPTORES GENERALES.
+    //          Si hay algún interruptorGeneral activado no se ejecuta nada.
+    //      DETECTOR DE PRESENCIA.
+    //          Presency:
+    //              Corriendo==TRUE:
+    //                  [Transmite la orden].
+    //              Corriendo==FALSE:
+    //                  [No hace nada].
+    //          Vacancy:
+    //              Corriendo==TRUE:
+    //                  [Transmite la orden].
+    //              Corriendo==FALSE:
+    //                  [Transmite la orden].
+    //      PULSADORES ACCION BASCULANTE.
+    //          ---.
+    //      PULSADORES ACCION FIJA.
+    //          ---.
+    //      PULSADORES ACCION REGULACION.
+    //          Si hay algún pulsador regulacion en el grupo corriendo no se ejecuta nada hasta que no se detenga.
+    //      PULSADORES DE ACCION TEMPORIZADA.
+    //          ---.
+    //      REGULADORES DE LUZ.
+    //          Funcionando:
+    //              Corriendo==TRUE:
+    //                  [¿Modifica el arco por el del regulador?] [Informa de la orden que va a transmitir y ejecuta la orden].
+    //              Corriendo==FALSE:
+    //                  [Transmite la orden]
+    //          Detenido:
+    //              Corriendo==TRUE:
+    //                  [¿Modifica el arco por el del regulador?] [Informa de la orden que va a transmitir y ejecuta la orden].
+    //              Corriendo==FALSE:
+    //                  [Transmite la orden]

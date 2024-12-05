@@ -1,0 +1,10 @@
+solution:
+  created-by: uv2csolution@1.4.0
+  created-for: CMSIS-Toolbox@2.3.0
+  compiler: AC6@6.21.0
+  target-types:
+    - type: IDNG64v5
+      device: STM32G070CBTx
+      optimize: debug
+  projects:
+    - project: IDNG64v5.cproject.yml
