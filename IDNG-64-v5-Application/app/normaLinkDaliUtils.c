@@ -304,7 +304,7 @@ void normaLinkDaliUtilsT1 (unsigned char comL, unsigned char dest)
 	
 	if (comL==0x21)
 	{
-		daliUtilsBlinkTerminate ();
+		daliUtilsBlinkTerminate (dest);
 		_tipoDeFrame=0x82;
 		_respuesta[0]=_tipoDeFrame;
 		_respuesta[1]=recibireth[2];

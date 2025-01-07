@@ -147,7 +147,7 @@ void botoneraDoTask (void)
 		}
 		else
 		{
-			daliUtilsBlinkTerminate();
+			daliUtilsBlinkTerminate(0xFF);
 		}	
 		
 	}

@@ -976,7 +976,7 @@ I (../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_spi_ex.h)(0x668B9A46)
 I (../Core/Inc/main.h)(0x668B9A45)
 I (tasks.h)(0x668B9A46)
 I (C:\Keil_v5\ARM\5.06\include\stdlib.h)(0x588BF3C4)
-I (..\app\maincfg.h)(0x66975D67)
+I (..\app\maincfg.h)(0x66E414FD)
 F (.\board.h)(0x66AC80F9)()
 F (.\tasks.c)(0x668B9A46)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -W -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I ../Drivers/CMSIS/Include -I ..\MDK-ARM -I ..\app-I.\RTE\_IDNG64v5-IC:\Users\i.garcia\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\i.garcia\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32G070xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G070xx-o code_porting\tasks.o --omf_browse code_porting\tasks.crf --depend code_porting\tasks.d)
 I (tasks.h)(0x668B9A46)
@@ -1030,7 +1030,7 @@ I (..\app\normaLinkDaliUtils.h)(0x668B9A46)
 I (..\app\normalink.h)(0x668B9A46)
 I (..\app\w5100/socket.h)(0x668B9A46)
 I (..\app\w5100/w5100.h)(0x668B9A46)
-I (..\app\mainCfg.h)(0x66975D67)
+I (..\app\mainCfg.h)(0x66E414FD)
 F (..\app\ethFramming.h)(0x668B9A46)()
 F (..\app\ethTransceiver.c)(0x668B9A46)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -W -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I ../Drivers/CMSIS/Include -I ..\MDK-ARM -I ..\app-I.\RTE\_IDNG64v5-IC:\Users\i.garcia\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\i.garcia\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32G070xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G070xx-o code_porting\ethtransceiver.o --omf_browse code_porting\ethtransceiver.crf --depend code_porting\ethtransceiver.d)
 I (..\app\config.h)(0x668B9A46)
@@ -1092,7 +1092,7 @@ I (..\app\systick.h)(0x668B9A46)
 F (..\app\actualLevel.c)(0x668B9A46)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -W -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I ../Drivers/CMSIS/Include -I ..\MDK-ARM -I ..\app-I.\RTE\_IDNG64v5-IC:\Users\i.garcia\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\i.garcia\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32G070xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G070xx-o code_porting\actuallevel.o --omf_browse code_porting\actuallevel.crf --depend code_porting\actuallevel.d)
 I (..\app\macros.h)(0x668B9A46)
 I (..\app\daliLoop.h)(0x668B9A46)
-F (..\app\botonera.c)(0x668B9A46)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -W -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I ../Drivers/CMSIS/Include -I ..\MDK-ARM -I ..\app-I.\RTE\_IDNG64v5-IC:\Users\i.garcia\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\i.garcia\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32G070xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G070xx-o code_porting\botonera.o --omf_browse code_porting\botonera.crf --depend code_porting\botonera.d)
+F (..\app\botonera.c)(0x677D1D3F)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -W -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I ../Drivers/CMSIS/Include -I ..\MDK-ARM -I ..\app-I.\RTE\_IDNG64v5-IC:\Users\i.garcia\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\i.garcia\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32G070xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G070xx-o code_porting\botonera.o --omf_browse code_porting\botonera.crf --depend code_porting\botonera.d)
 I (..\app\config.h)(0x668B9A46)
 I (C:\Keil_v5\ARM\5.06\include\string.h)(0x588BF3C4)
 I (..\app\m25p.h)(0x668B9A46)
@@ -1110,7 +1110,7 @@ I (..\app\dataTypes.h)(0x668B9A46)
 I (..\app\macros.h)(0x668B9A46)
 F (..\app\dADSA.c)(0x668B9A46)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -W -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I ../Drivers/CMSIS/Include -I ..\MDK-ARM -I ..\app-I.\RTE\_IDNG64v5-IC:\Users\i.garcia\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\i.garcia\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32G070xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G070xx-o code_porting\dadsa.o --omf_browse code_porting\dadsa.crf --depend code_porting\dadsa.d)
 I (..\app\dali.h)(0x66964A73)
-F (..\app\dali.c)(0x66AC80F9)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -W -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I ../Drivers/CMSIS/Include -I ..\MDK-ARM -I ..\app-I.\RTE\_IDNG64v5-IC:\Users\i.garcia\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\i.garcia\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32G070xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G070xx-o code_porting\dali.o --omf_browse code_porting\dali.crf --depend code_porting\dali.d)
+F (..\app\dali.c)(0x677D1D0C)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -W -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I ../Drivers/CMSIS/Include -I ..\MDK-ARM -I ..\app-I.\RTE\_IDNG64v5-IC:\Users\i.garcia\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\i.garcia\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32G070xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G070xx-o code_porting\dali.o --omf_browse code_porting\dali.crf --depend code_porting\dali.d)
 I (..\app\daliTransceiver.h)(0x668B9A46)
 I (..\app\dali.h)(0x66964A73)
 I (..\app\polling.h)(0x66966967)
@@ -1127,7 +1127,7 @@ I (..\app\test.h)(0x668B9A46)
 I (..\app\daliAddressing.h)(0x66964A86)
 I (..\app\daliUtils.h)(0x668B9A46)
 I (..\app\daliSensores.h)(0x668B9A46)
-I (..\app\mainCfg.h)(0x66975D67)
+I (..\app\mainCfg.h)(0x66E414FD)
 F (..\app\daliAddressing.c)(0x66AC80F9)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -W -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I ../Drivers/CMSIS/Include -I ..\MDK-ARM -I ..\app-I.\RTE\_IDNG64v5-IC:\Users\i.garcia\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\i.garcia\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32G070xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G070xx-o code_porting\daliaddressing.o --omf_browse code_porting\daliaddressing.crf --depend code_porting\daliaddressing.d)
 I (..\app\daliCommands.h)(0x668B9A46)
 I (..\app\dali.h)(0x66964A73)
@@ -1160,11 +1160,11 @@ I (..\app\dali.h)(0x66964A73)
 F (..\app\daliTransceiver.c)(0x66AC97B2)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -W -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I ../Drivers/CMSIS/Include -I ..\MDK-ARM -I ..\app-I.\RTE\_IDNG64v5-IC:\Users\i.garcia\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\i.garcia\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32G070xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G070xx-o code_porting\dalitransceiver.o --omf_browse code_porting\dalitransceiver.crf --depend code_porting\dalitransceiver.d)
 I (..\app\daliTransceiver.h)(0x668B9A46)
 I (..\app\spi1.h)(0x668B9A46)
-F (..\app\daliUtils.c)(0x668B9A46)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -W -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I ../Drivers/CMSIS/Include -I ..\MDK-ARM -I ..\app-I.\RTE\_IDNG64v5-IC:\Users\i.garcia\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\i.garcia\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32G070xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G070xx-o code_porting\daliutils.o --omf_browse code_porting\daliutils.crf --depend code_porting\daliutils.d)
+F (..\app\daliUtils.c)(0x677D1D79)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -W -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I ../Drivers/CMSIS/Include -I ..\MDK-ARM -I ..\app-I.\RTE\_IDNG64v5-IC:\Users\i.garcia\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\i.garcia\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32G070xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G070xx-o code_porting\daliutils.o --omf_browse code_porting\daliutils.crf --depend code_porting\daliutils.d)
 I (..\app\dali.h)(0x66964A73)
 I (..\app\daliUtils.h)(0x668B9A46)
 I (..\app\polling.h)(0x66966967)
-I (..\app\mainCfg.h)(0x66975D67)
+I (..\app\mainCfg.h)(0x66E414FD)
 F (..\app\dALS.c)(0x66AC9AB1)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -W -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I ../Drivers/CMSIS/Include -I ..\MDK-ARM -I ..\app-I.\RTE\_IDNG64v5-IC:\Users\i.garcia\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\i.garcia\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32G070xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G070xx-o code_porting\dals.o --omf_browse code_porting\dals.crf --depend code_porting\dals.d)
 I (..\app\dali.h)(0x66964A73)
 I (..\app\config.h)(0x668B9A46)
@@ -1228,7 +1228,7 @@ I (..\app\w5100/socket.h)(0x668B9A46)
 I (..\app\w5100/w5100.h)(0x668B9A46)
 I (..\app\normalink.h)(0x668B9A46)
 I (..\app\dali.h)(0x66964A73)
-I (..\app\mainCfg.h)(0x66975D67)
+I (..\app\mainCfg.h)(0x66E414FD)
 F (..\app\normaLink62386P102.c)(0x668B9A46)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -W -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I ../Drivers/CMSIS/Include -I ..\MDK-ARM -I ..\app-I.\RTE\_IDNG64v5-IC:\Users\i.garcia\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\i.garcia\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32G070xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G070xx-o code_porting\normalink62386p102.o --omf_browse code_porting\normalink62386p102.crf --depend code_porting\normalink62386p102.d)
 I (..\app\normalink.h)(0x668B9A46)
 I (..\app\daliLoop.h)(0x668B9A46)
@@ -1262,7 +1262,7 @@ I (..\app\rtcc.h)(0x668B9A46)
 I (..\app\historico.h)(0x668B9A46)
 I (..\app\storage.h)(0x668B9A46)
 I (..\app\ethFramming.h)(0x668B9A46)
-I (..\app\mainCfg.h)(0x66975D67)
+I (..\app\mainCfg.h)(0x66E414FD)
 F (..\app\normaLinkCmdPasarela.c)(0x668B9A46)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -W -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I ../Drivers/CMSIS/Include -I ..\MDK-ARM -I ..\app-I.\RTE\_IDNG64v5-IC:\Users\i.garcia\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\i.garcia\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32G070xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G070xx-o code_porting\normalinkcmdpasarela.o --omf_browse code_porting\normalinkcmdpasarela.crf --depend code_porting\normalinkcmdpasarela.d)
 I (..\app\config.h)(0x668B9A46)
 I (C:\Keil_v5\ARM\5.06\include\string.h)(0x588BF3C4)
@@ -1277,8 +1277,8 @@ I (..\app\ethFramming.h)(0x668B9A46)
 I (..\app\normalink.h)(0x668B9A46)
 I (..\app\wdt.h)(0x668B9A46)
 I (..\app\utils.h)(0x668B9A46)
-I (..\app\mainCfg.h)(0x66975D67)
-F (..\app\normaLinkDaliUtils.c)(0x668B9A46)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -W -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I ../Drivers/CMSIS/Include -I ..\MDK-ARM -I ..\app-I.\RTE\_IDNG64v5-IC:\Users\i.garcia\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\i.garcia\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32G070xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G070xx-o code_porting\normalinkdaliutils.o --omf_browse code_porting\normalinkdaliutils.crf --depend code_porting\normalinkdaliutils.d)
+I (..\app\mainCfg.h)(0x66E414FD)
+F (..\app\normaLinkDaliUtils.c)(0x677D1D4D)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -W -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I ../Drivers/CMSIS/Include -I ..\MDK-ARM -I ..\app-I.\RTE\_IDNG64v5-IC:\Users\i.garcia\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\i.garcia\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32G070xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G070xx-o code_porting\normalinkdaliutils.o --omf_browse code_porting\normalinkdaliutils.crf --depend code_porting\normalinkdaliutils.d)
 I (..\app\normalink.h)(0x668B9A46)
 I (..\app\ethFramming.h)(0x668B9A46)
 I (..\app\daliUtils.h)(0x668B9A46)
@@ -1291,7 +1291,7 @@ I (..\app\sensoresGrupos/sensoresGrupos.h)(0x668B9A46)
 I (..\app\sensoresGrupos/sensoresGruposDetectoresPresencia.h)(0x668B9A46)
 I (..\app\ethFramming.h)(0x668B9A46)
 I (..\app\utils.h)(0x668B9A46)
-I (..\app\mainCfg.h)(0x66975D67)
+I (..\app\mainCfg.h)(0x66E414FD)
 F (..\app\normaLinkSingleLoop.c)(0x668B9A46)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -W -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I ../Drivers/CMSIS/Include -I ..\MDK-ARM -I ..\app-I.\RTE\_IDNG64v5-IC:\Users\i.garcia\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\i.garcia\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32G070xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G070xx-o code_porting\normalinksingleloop.o --omf_browse code_porting\normalinksingleloop.crf --depend code_porting\normalinksingleloop.d)
 I (..\app\normalink.h)(0x668B9A46)
 I (..\app\config.h)(0x668B9A46)
@@ -1345,7 +1345,7 @@ I (..\app\utils.h)(0x668B9A46)
 I (..\app\config.h)(0x668B9A46)
 I (C:\Keil_v5\ARM\5.06\include\string.h)(0x588BF3C4)
 I (..\app\m25p.h)(0x668B9A46)
-I (..\app\mainCfg.h)(0x66975D67)
+I (..\app\mainCfg.h)(0x66E414FD)
 F (..\app\sensoresConfig.c)(0x668B9A46)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -W -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I ../Drivers/CMSIS/Include -I ..\MDK-ARM -I ..\app-I.\RTE\_IDNG64v5-IC:\Users\i.garcia\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\i.garcia\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32G070xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G070xx-o code_porting\sensoresconfig.o --omf_browse code_porting\sensoresconfig.crf --depend code_porting\sensoresconfig.d)
 I (..\app\interfaces.h)(0x668B9A46)
 I (..\app\dataTypes.h)(0x668B9A46)
@@ -1395,7 +1395,7 @@ I (..\app\dali.h)(0x66964A73)
 I (..\app\daliLoop.h)(0x668B9A46)
 I (..\app\macros.h)(0x668B9A46)
 I (..\app\rtcc.h)(0x668B9A46)
-I (..\app\mainCfg.h)(0x66975D67)
+I (..\app\mainCfg.h)(0x66E414FD)
 F (..\app\test.c)(0x668B9A46)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -W -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I ../Drivers/CMSIS/Include -I ..\MDK-ARM -I ..\app-I.\RTE\_IDNG64v5-IC:\Users\i.garcia\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\i.garcia\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32G070xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G070xx-o code_porting\test.o --omf_browse code_porting\test.crf --depend code_porting\test.d)
 I (..\app\daliCommands.h)(0x668B9A46)
 I (..\app\dali.h)(0x66964A73)
@@ -1461,7 +1461,7 @@ I (C:\Keil_v5\ARM\5.06\include\stdio.h)(0x588BF3C4)
 I (C:\Keil_v5\ARM\5.06\include\stdlib.h)(0x588BF3C4)
 I (C:\Keil_v5\ARM\5.06\include\ctype.h)(0x588BF3C4)
 I (..\app\systick.h)(0x668B9A46)
-I (..\app\mainCfg.h)(0x66975D67)
+I (..\app\mainCfg.h)(0x66E414FD)
 F (..\app\sensoresGrupos\sensoresGrupos.c)(0x66910719)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -W -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I ../Drivers/CMSIS/Include -I ..\MDK-ARM -I ..\app-I.\RTE\_IDNG64v5-IC:\Users\i.garcia\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\i.garcia\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32G070xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G070xx-o code_porting\sensoresgrupos.o --omf_browse code_porting\sensoresgrupos.crf --depend code_porting\sensoresgrupos.d)
 I (..\app\sensoresGrupos\sensoresGrupos.h)(0x668B9A46)
 I (..\app\dataTypes.h)(0x668B9A46)
@@ -1492,7 +1492,7 @@ I (..\app\sensoresGrupos\sensoresGruposPulsadoresAccionFija.h)(0x668B9A46)
 I (..\app\sensoresGrupos\sensoresGruposPulsadoresAccionRegulacion.h)(0x668B9A46)
 I (..\app\sensoresGrupos\sensoresGruposPulsadoresAccionTemporizada.h)(0x668B9A46)
 I (..\app\sensoresGrupos\sensoresGruposReguladoresLuz.h)(0x668B9A46)
-I (..\app\mainCfg.h)(0x66975D67)
+I (..\app\mainCfg.h)(0x66E414FD)
 F (..\app\sensoresGrupos\sensoresGruposPulsadoresAccionBasculante.c)(0x66975B5D)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -W -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I ../Drivers/CMSIS/Include -I ..\MDK-ARM -I ..\app-I.\RTE\_IDNG64v5-IC:\Users\i.garcia\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\i.garcia\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32G070xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G070xx-o code_porting\sensoresgrupospulsadoresaccionbasculante.o --omf_browse code_porting\sensoresgrupospulsadoresaccionbasculante.crf --depend code_porting\sensoresgrupospulsadoresaccionbasculante.d)
 I (..\app\sensoresGrupos\sensoresGruposPulsadoresAccionBasculante.h)(0x668B9A46)
 I (..\app\dataTypes.h)(0x668B9A46)
@@ -1505,7 +1505,7 @@ I (..\app\sensoresGrupos\sensoresGruposPulsadoresAccionFija.h)(0x668B9A46)
 I (..\app\sensoresGrupos\sensoresGruposPulsadoresAccionRegulacion.h)(0x668B9A46)
 I (..\app\sensoresGrupos\sensoresGruposPulsadoresAccionTemporizada.h)(0x668B9A46)
 I (..\app\sensoresGrupos\sensoresGruposReguladoresLuz.h)(0x668B9A46)
-I (..\app\mainCfg.h)(0x66975D67)
+I (..\app\mainCfg.h)(0x66E414FD)
 F (..\app\sensoresGrupos\sensoresGruposPulsadoresAccionFija.c)(0x668B9A46)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -W -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I ../Drivers/CMSIS/Include -I ..\MDK-ARM -I ..\app-I.\RTE\_IDNG64v5-IC:\Users\i.garcia\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\i.garcia\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32G070xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G070xx-o code_porting\sensoresgrupospulsadoresaccionfija.o --omf_browse code_porting\sensoresgrupospulsadoresaccionfija.crf --depend code_porting\sensoresgrupospulsadoresaccionfija.d)
 I (..\app\sensoresGrupos\sensoresGruposPulsadoresAccionFija.h)(0x668B9A46)
 I (..\app\dataTypes.h)(0x668B9A46)
@@ -1518,7 +1518,7 @@ I (..\app\sensoresGrupos\sensoresGruposPulsadoresAccionBasculante.h)(0x668B9A46)
 I (..\app\sensoresGrupos\sensoresGruposPulsadoresAccionRegulacion.h)(0x668B9A46)
 I (..\app\sensoresGrupos\sensoresGruposPulsadoresAccionTemporizada.h)(0x668B9A46)
 I (..\app\sensoresGrupos\sensoresGruposReguladoresLuz.h)(0x668B9A46)
-I (..\app\mainCfg.h)(0x66975D67)
+I (..\app\mainCfg.h)(0x66E414FD)
 F (..\app\sensoresGrupos\sensoresGruposPulsadoresAccionRegulacion.c)(0x668B9A46)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -W -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I ../Drivers/CMSIS/Include -I ..\MDK-ARM -I ..\app-I.\RTE\_IDNG64v5-IC:\Users\i.garcia\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\i.garcia\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32G070xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G070xx-o code_porting\sensoresgrupospulsadoresaccionregulacion.o --omf_browse code_porting\sensoresgrupospulsadoresaccionregulacion.crf --depend code_porting\sensoresgrupospulsadoresaccionregulacion.d)
 I (..\app\sensoresGrupos\sensoresGruposPulsadoresAccionRegulacion.h)(0x668B9A46)
 I (..\app\sensores.h)(0x668B9A46)
@@ -1532,7 +1532,7 @@ I (..\app\sensoresGrupos\sensoresGruposPulsadoresAccionFija.h)(0x668B9A46)
 I (..\app\sensoresGrupos\sensoresGruposPulsadoresAccionTemporizada.h)(0x668B9A46)
 I (..\app\sensoresGrupos\sensoresGruposReguladoresLuz.h)(0x668B9A46)
 I (..\app\daliSensores.h)(0x668B9A46)
-I (..\app\mainCfg.h)(0x66975D67)
+I (..\app\mainCfg.h)(0x66E414FD)
 F (..\app\sensoresGrupos\sensoresGruposPulsadoresAccionTemporizada.c)(0x668B9A46)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -W -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I ../Drivers/CMSIS/Include -I ..\MDK-ARM -I ..\app-I.\RTE\_IDNG64v5-IC:\Users\i.garcia\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\i.garcia\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32G070xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G070xx-o code_porting\sensoresgrupospulsadoresacciontemporizada.o --omf_browse code_porting\sensoresgrupospulsadoresacciontemporizada.crf --depend code_porting\sensoresgrupospulsadoresacciontemporizada.d)
 I (..\app\sensoresGrupos\sensoresGruposPulsadoresAccionTemporizada.h)(0x668B9A46)
 I (..\app\dataTypes.h)(0x668B9A46)
@@ -1545,7 +1545,7 @@ I (..\app\sensoresGrupos\sensoresGruposPulsadoresAccionBasculante.h)(0x668B9A46)
 I (..\app\sensoresGrupos\sensoresGruposPulsadoresAccionFija.h)(0x668B9A46)
 I (..\app\sensoresGrupos\sensoresGruposPulsadoresAccionRegulacion.h)(0x668B9A46)
 I (..\app\sensoresGrupos\sensoresGruposReguladoresLuz.h)(0x668B9A46)
-I (..\app\mainCfg.h)(0x66975D67)
+I (..\app\mainCfg.h)(0x66E414FD)
 F (..\app\sensoresGrupos\sensoresGruposPulsadoresTW.c)(0x668B9A46)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -W -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I ../Drivers/CMSIS/Include -I ..\MDK-ARM -I ..\app-I.\RTE\_IDNG64v5-IC:\Users\i.garcia\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\i.garcia\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32G070xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G070xx-o code_porting\sensoresgrupospulsadorestw.o --omf_browse code_porting\sensoresgrupospulsadorestw.crf --depend code_porting\sensoresgrupospulsadorestw.d)
 I (..\app\sensoresGrupos\sensoresGruposPulsadoresTW.h)(0x668B9A46)
 I (..\app\sensores.h)(0x668B9A46)
@@ -1560,7 +1560,7 @@ I (..\app\sensoresGrupos\sensoresGruposPulsadoresAccionRegulacion.h)(0x668B9A46)
 I (..\app\sensoresGrupos\sensoresGruposPulsadoresAccionTemporizada.h)(0x668B9A46)
 I (..\app\sensoresGrupos\sensoresGruposReguladoresLuz.h)(0x668B9A46)
 I (..\app\daliSensores.h)(0x668B9A46)
-I (..\app\mainCfg.h)(0x66975D67)
+I (..\app\mainCfg.h)(0x66E414FD)
 F (..\app\sensoresGrupos\sensoresGruposReguladoresLuz.c)(0x668B9A46)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -W -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I ../Drivers/CMSIS/Include -I ..\MDK-ARM -I ..\app-I.\RTE\_IDNG64v5-IC:\Users\i.garcia\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\i.garcia\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32G070xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G070xx-o code_porting\sensoresgruposreguladoresluz.o --omf_browse code_porting\sensoresgruposreguladoresluz.crf --depend code_porting\sensoresgruposreguladoresluz.d)
 I (..\app\sensoresGrupos\sensoresGruposReguladoresLuz.h)(0x668B9A46)
 I (..\app\sensores.h)(0x668B9A46)
@@ -1573,7 +1573,7 @@ I (..\app\sensoresGrupos\sensoresGruposPulsadoresAccionBasculante.h)(0x668B9A46)
 I (..\app\sensoresGrupos\sensoresGruposPulsadoresAccionFija.h)(0x668B9A46)
 I (..\app\sensoresGrupos\sensoresGruposPulsadoresAccionRegulacion.h)(0x668B9A46)
 I (..\app\sensoresGrupos\sensoresGruposPulsadoresAccionTemporizada.h)(0x668B9A46)
-I (..\app\mainCfg.h)(0x66975D67)
+I (..\app\mainCfg.h)(0x66E414FD)
 F (..\app\w5100\md5.c)(0x668B9A46)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -W -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I ../Drivers/CMSIS/Include -I ..\MDK-ARM -I ..\app-I.\RTE\_IDNG64v5-IC:\Users\i.garcia\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\i.garcia\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32G070xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G070xx-o code_porting\md5.o --omf_browse code_porting\md5.crf --depend code_porting\md5.d)
 F (..\app\w5100\md5.h)(0x668B9A46)()
 F (..\app\w5100\readme.txt)(0x668B9A46)()

@@ -258,12 +258,12 @@ unsigned char daliUtilsBlinkGet (void)
 	return _daliUtilsBlink;	
 }
 
-void daliUtilsBlinkTerminate (void)
+void daliUtilsBlinkTerminate (unsigned char dest)
 {
 	unsigned char apply[8];	
 	if (_daliUtilsBlink==0x01)
 	{
-		while (daliSend(DALI_UTILS, 0xFFFF, 0x01, 0xFF, &apply[0], 0x2B, 0x05)==0x00)
+		while (daliSend(DALI_UTILS, 0xFFFF, 0x01, dest, &apply[0], 0x2B, 0x05)==0x00)
 		{
 			daliDoTask();
 		}
@@ -382,7 +382,7 @@ void daliUtilsTick (void)
 			}
 			else
 			{
-				daliUtilsBlinkTerminate();		
+				daliUtilsBlinkTerminate(0xFF);		
 			}			
 		}		
 	}	

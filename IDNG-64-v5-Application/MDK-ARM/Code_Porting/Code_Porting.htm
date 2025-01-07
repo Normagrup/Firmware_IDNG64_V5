@@ -3,7 +3,7 @@
 <title>Static Call Graph - [Code_Porting\Code_Porting.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image Code_Porting\Code_Porting.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Fri Aug 02 10:37:12 2024
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Tue Jan 07 13:26:43 2025
 <BR><P>
 <H3>Maximum Stack Usage =       3912 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -892,7 +892,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[5]"></a>SysTick_Handler</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, stm32g0xx_it.o(i.SysTick_Handler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 1640<LI>Call Chain = SysTick_Handler &rArr; boardSystick &rArr; sysTickTick &rArr; daliUtilsTick &rArr; daliUtilsBlinkTerminate &rArr; daliDoTask &rArr; daliAddressingDaliNotifyCb &rArr; dAQGroupsLowCb &rArr; configDaliLoopGroupLowSet &rArr; configStoreInFlash &rArr; m25pWriteBytes &rArr; spiIINCHIP_SpiSendData &rArr; boardSPI2Write &rArr; HAL_SPI_Transmit &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFifoStateUntilTimeout
+<BR><BR>[Stack]<UL><LI>Max Depth = 1648<LI>Call Chain = SysTick_Handler &rArr; boardSystick &rArr; sysTickTick &rArr; daliUtilsTick &rArr; daliUtilsBlinkTerminate &rArr; daliDoTask &rArr; daliAddressingDaliNotifyCb &rArr; dAQGroupsLowCb &rArr; configDaliLoopGroupLowSet &rArr; configStoreInFlash &rArr; m25pWriteBytes &rArr; spiIINCHIP_SpiSendData &rArr; boardSPI2Write &rArr; HAL_SPI_Transmit &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFifoStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;boardSystick
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_IncTick
@@ -1525,7 +1525,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[74]"></a>boardSystick</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, board.o(i.boardSystick))
-<BR><BR>[Stack]<UL><LI>Max Depth = 1632<LI>Call Chain = boardSystick &rArr; sysTickTick &rArr; daliUtilsTick &rArr; daliUtilsBlinkTerminate &rArr; daliDoTask &rArr; daliAddressingDaliNotifyCb &rArr; dAQGroupsLowCb &rArr; configDaliLoopGroupLowSet &rArr; configStoreInFlash &rArr; m25pWriteBytes &rArr; spiIINCHIP_SpiSendData &rArr; boardSPI2Write &rArr; HAL_SPI_Transmit &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFifoStateUntilTimeout
+<BR><BR>[Stack]<UL><LI>Max Depth = 1640<LI>Call Chain = boardSystick &rArr; sysTickTick &rArr; daliUtilsTick &rArr; daliUtilsBlinkTerminate &rArr; daliDoTask &rArr; daliAddressingDaliNotifyCb &rArr; dAQGroupsLowCb &rArr; configDaliLoopGroupLowSet &rArr; configStoreInFlash &rArr; m25pWriteBytes &rArr; spiIINCHIP_SpiSendData &rArr; boardSPI2Write &rArr; HAL_SPI_Transmit &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFifoStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sysTickTick
 </UL>
@@ -1612,7 +1612,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;configSubmaskAddressSet
 </UL>
 
-<P><STRONG><a name="[d8]"></a>botoneraDoTask</STRONG> (Thumb, 140 bytes, Stack size 8 bytes, botonera.o(i.botoneraDoTask))
+<P><STRONG><a name="[d8]"></a>botoneraDoTask</STRONG> (Thumb, 142 bytes, Stack size 8 bytes, botonera.o(i.botoneraDoTask))
 <BR><BR>[Stack]<UL><LI>Max Depth = 1624<LI>Call Chain = botoneraDoTask &rArr; daliUtilsBlinkSend &rArr; daliAccessHandlerAllowOnlyThisModule &rArr; daliDoTask &rArr; daliAddressingDaliNotifyCb &rArr; dAQGroupsLowCb &rArr; configDaliLoopGroupLowSet &rArr; configStoreInFlash &rArr; m25pWriteBytes &rArr; spiIINCHIP_SpiSendData &rArr; boardSPI2Write &rArr; HAL_SPI_Transmit &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFifoStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wdtReboot
@@ -3395,8 +3395,8 @@ Global Symbols
 <LI><a href="#[1c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;normaLinkDaliUtilsT1
 </UL>
 
-<P><STRONG><a name="[db]"></a>daliUtilsBlinkTerminate</STRONG> (Thumb, 62 bytes, Stack size 40 bytes, daliutils.o(i.daliUtilsBlinkTerminate))
-<BR><BR>[Stack]<UL><LI>Max Depth = 1576<LI>Call Chain = daliUtilsBlinkTerminate &rArr; daliDoTask &rArr; daliAddressingDaliNotifyCb &rArr; dAQGroupsLowCb &rArr; configDaliLoopGroupLowSet &rArr; configStoreInFlash &rArr; m25pWriteBytes &rArr; spiIINCHIP_SpiSendData &rArr; boardSPI2Write &rArr; HAL_SPI_Transmit &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFifoStateUntilTimeout
+<P><STRONG><a name="[db]"></a>daliUtilsBlinkTerminate</STRONG> (Thumb, 62 bytes, Stack size 48 bytes, daliutils.o(i.daliUtilsBlinkTerminate))
+<BR><BR>[Stack]<UL><LI>Max Depth = 1584<LI>Call Chain = daliUtilsBlinkTerminate &rArr; daliDoTask &rArr; daliAddressingDaliNotifyCb &rArr; dAQGroupsLowCb &rArr; configDaliLoopGroupLowSet &rArr; configStoreInFlash &rArr; m25pWriteBytes &rArr; spiIINCHIP_SpiSendData &rArr; boardSPI2Write &rArr; HAL_SPI_Transmit &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFifoStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;daliDoTask
 <LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;daliAccessHandlerAllowAllModules
@@ -3534,8 +3534,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[1c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;normaLinkDaliUtilsT1
 </UL>
 
-<P><STRONG><a name="[1ad]"></a>daliUtilsTick</STRONG> (Thumb, 154 bytes, Stack size 40 bytes, daliutils.o(i.daliUtilsTick))
-<BR><BR>[Stack]<UL><LI>Max Depth = 1616<LI>Call Chain = daliUtilsTick &rArr; daliUtilsBlinkTerminate &rArr; daliDoTask &rArr; daliAddressingDaliNotifyCb &rArr; dAQGroupsLowCb &rArr; configDaliLoopGroupLowSet &rArr; configStoreInFlash &rArr; m25pWriteBytes &rArr; spiIINCHIP_SpiSendData &rArr; boardSPI2Write &rArr; HAL_SPI_Transmit &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFifoStateUntilTimeout
+<P><STRONG><a name="[1ad]"></a>daliUtilsTick</STRONG> (Thumb, 156 bytes, Stack size 40 bytes, daliutils.o(i.daliUtilsTick))
+<BR><BR>[Stack]<UL><LI>Max Depth = 1624<LI>Call Chain = daliUtilsTick &rArr; daliUtilsBlinkTerminate &rArr; daliDoTask &rArr; daliAddressingDaliNotifyCb &rArr; dAQGroupsLowCb &rArr; configDaliLoopGroupLowSet &rArr; configStoreInFlash &rArr; m25pWriteBytes &rArr; spiIINCHIP_SpiSendData &rArr; boardSPI2Write &rArr; HAL_SPI_Transmit &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFifoStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;daliDoTask
 <LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;daliSend
@@ -4392,7 +4392,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[1b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ethProcessFrame
 </UL>
 
-<P><STRONG><a name="[1be]"></a>normaLinkCfgInfoPasarelaT0</STRONG> (Thumb, 1306 bytes, Stack size 408 bytes, normalinkcfginfopasarela.o(i.normaLinkCfgInfoPasarelaT0))
+<P><STRONG><a name="[1be]"></a>normaLinkCfgInfoPasarelaT0</STRONG> (Thumb, 1312 bytes, Stack size 408 bytes, normalinkcfginfopasarela.o(i.normaLinkCfgInfoPasarelaT0))
 <BR><BR>[Stack]<UL><LI>Max Depth = 1008<LI>Call Chain = normaLinkCfgInfoPasarelaT0 &rArr; ethSendACK &rArr; ethSendFrame &rArr; sendto &rArr; send_data_processing &rArr; write_data &rArr; wiz_write_buf &rArr; spiIINCHIP_SpiSendData &rArr; boardSPI2Write &rArr; HAL_SPI_Transmit &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFifoStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[228]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;configNombreLineaGet
@@ -4494,7 +4494,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[1bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;normaLinkCmdPasarelaT0
 </UL>
 
-<P><STRONG><a name="[1c4]"></a>normaLinkDaliUtilsT1</STRONG> (Thumb, 214 bytes, Stack size 40 bytes, normalinkdaliutils.o(i.normaLinkDaliUtilsT1))
+<P><STRONG><a name="[1c4]"></a>normaLinkDaliUtilsT1</STRONG> (Thumb, 216 bytes, Stack size 40 bytes, normalinkdaliutils.o(i.normaLinkDaliUtilsT1))
 <BR><BR>[Stack]<UL><LI>Max Depth = 1656<LI>Call Chain = normaLinkDaliUtilsT1 &rArr; daliUtilsBlinkSend &rArr; daliAccessHandlerAllowOnlyThisModule &rArr; daliDoTask &rArr; daliAddressingDaliNotifyCb &rArr; dAQGroupsLowCb &rArr; configDaliLoopGroupLowSet &rArr; configStoreInFlash &rArr; m25pWriteBytes &rArr; spiIINCHIP_SpiSendData &rArr; boardSPI2Write &rArr; HAL_SPI_Transmit &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFifoStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;daliUtilsBlinkTerminate
@@ -5925,7 +5925,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[ce]"></a>sysTickTick</STRONG> (Thumb, 62 bytes, Stack size 8 bytes, systick.o(i.sysTickTick))
-<BR><BR>[Stack]<UL><LI>Max Depth = 1624<LI>Call Chain = sysTickTick &rArr; daliUtilsTick &rArr; daliUtilsBlinkTerminate &rArr; daliDoTask &rArr; daliAddressingDaliNotifyCb &rArr; dAQGroupsLowCb &rArr; configDaliLoopGroupLowSet &rArr; configStoreInFlash &rArr; m25pWriteBytes &rArr; spiIINCHIP_SpiSendData &rArr; boardSPI2Write &rArr; HAL_SPI_Transmit &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFifoStateUntilTimeout
+<BR><BR>[Stack]<UL><LI>Max Depth = 1632<LI>Call Chain = sysTickTick &rArr; daliUtilsTick &rArr; daliUtilsBlinkTerminate &rArr; daliDoTask &rArr; daliAddressingDaliNotifyCb &rArr; dAQGroupsLowCb &rArr; configDaliLoopGroupLowSet &rArr; configStoreInFlash &rArr; m25pWriteBytes &rArr; spiIINCHIP_SpiSendData &rArr; boardSPI2Write &rArr; HAL_SPI_Transmit &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFifoStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;botoneraTick
 <LI><a href="#[2c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ethICMPTick
