@@ -288,6 +288,7 @@ unsigned char daliUtilsBlinkSend (unsigned char dest, unsigned int period)
 		{
 			_daliUtilsBlink=0x01;
 			_daliUtilsBlinkOnOff=0x00;
+			daliSend(DALI_UTILS, 0xFFFF, 0x01, _daliUtilsBlinkDest, &apply[0], 0x2B, 0x05);
 			_daliUtilsBlinkDest=dest;
 			#ifdef DEBUG_UTILS_SEND
 				debugFrame[0]=DEBUG_FRAME_TYPE;
@@ -297,7 +298,7 @@ unsigned char daliUtilsBlinkSend (unsigned char dest, unsigned int period)
 				debugFrame[4]=DEBUG_UTILS_SEND_SUB_OP_MAX;
 				ethSendFrame(0,&debugFrame[0],DEBUG_UTILS_SEND_FRAME_LENGHT,&_broadcastAddress[0], DEBUG_UTILS_SEND_PORT);	
 			#endif	
-			daliSend(DALI_UTILS, 0xFFFF, 0x01, 0xFF, &apply[0], 0x2B, 0x05);					
+			//daliSend(DALI_UTILS, 0xFFFF, 0x01, _daliUtilsBlinkDest, &apply[0], 0x2B, 0x05);					
 			while (daliSend(DALI_UTILS, 0xFFFF, 0x01, _daliUtilsBlinkDest, &apply[0], 0x2C, 0xF0)==0x00)
 			{
 				daliDoTask();
