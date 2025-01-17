@@ -16,8 +16,8 @@
 #define MODEL_H						8
 #define MODEL_L						0
 #define FW_VERSION_MAJOR	(5)
-#define FW_VERSION_MINOR	(3)
-#define WEBSERVER_TEXT		"[IDNG64 5.3 build 17/07/2024].\r\n"
+#define FW_VERSION_MINOR	(4)
+#define WEBSERVER_TEXT		"[IDNG64 5.4 build 17/01/2025].\r\n"
 
 #ifdef	DEBUG
 	#define WEBSERVER_TEXT		"[Fw: v5.0 dbg].\r\n"	
